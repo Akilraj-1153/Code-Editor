@@ -4,6 +4,7 @@ import { BsGithub } from "react-icons/bs";
 import { FaComputer } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 import {
   faUtensils,
   faBed,
@@ -12,26 +13,30 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className="h-full w-full flex flex-col items-center gap-2 justify-center ">
       <div className="flex justify-center items-center w-full h-fit xs:flex-col gap-2 ">
         <div className="flex ">
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">C</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">O</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">D</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">E</h1>
-        <span className="p-3"></span>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">E</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">D</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">I</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">T</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">O</h1>
-        <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">R</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">C</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">O</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">D</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">E</h1>
+          <span className="p-3"></span>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">E</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">D</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">I</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">T</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">O</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">R</h1>
         </div>
-        
+
         <span className="px-2"></span>
         <div className="p-2">
-          <button className="p-3 bg-white rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform">
+          <button
+            onClick={() => navigate("code_editor")}
+            className="p-3 bg-white rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform"
+          >
             Visit Code Editor <FaComputer size={30} />
           </button>
         </div>
@@ -42,7 +47,7 @@ function Home() {
           Languages.
         </h1>
       </div>
-      
+
       <div className="text-white gap-20  flex font-mono cursor-none mt-5 xs:grid xs:grid-cols-2 md:grid-cols-4">
         <div className="flex justify-center items-center flex-col hover:scale-150 transition-transform opacity-25 hover:opacity-100">
           <FontAwesomeIcon icon={faUtensils} color="white" size="2xl" />

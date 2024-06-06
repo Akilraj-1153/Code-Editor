@@ -11,7 +11,7 @@ function App() {
       <div className="h-[7vh] w-full ">
       <NavBar></NavBar>
       </div>
-      <div className="h-[93vh] w-full bg-black">
+      <div className="h-[93vh] w-full bg-black p-2 rounded-lg">
       
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
