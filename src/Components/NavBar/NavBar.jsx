@@ -21,15 +21,24 @@ function NavBar() {
         </div>
         <div className="flex gap-2 justify-end h-full w-full items-center mr-10 font-mateSc text-xl select-none xs:hidden md:flex">
           <div className="flex bg-white rounded-md justify-center tems-center">
-          <Link to='/' className="text-black font-bold  bg-white rounded-md p-2 scale-75 hover:scale-90 transition-transform ">
-            Home
-          </Link>
-          <Link to='code_editor' className="text-black font-bold bg-white rounded-md p-2  scale-75 hover:scale-90 transition-transform ">
-            Code Editor
-          </Link>
-          <Link to='about' className="text-black font-bold bg-white rounded-md p-2  scale-75 hover:scale-90 transition-transform ">
-            About
-          </Link>
+            <Link
+              to="/"
+              className="text-black font-bold  bg-white rounded-md p-2 scale-75 hover:scale-90 transition-transform "
+            >
+              Home
+            </Link>
+            <Link
+              to="code_editor"
+              className="text-black font-bold bg-white rounded-md p-2  scale-75 hover:scale-90 transition-transform "
+            >
+              Code Editor
+            </Link>
+            <Link
+              to="about"
+              className="text-black font-bold bg-white rounded-md p-2  scale-75 hover:scale-90 transition-transform "
+            >
+              About
+            </Link>
           </div>
         </div>
         <div className="h-full w-full justify-end  flex  items-center mr-2  xs:flex md:hidden">

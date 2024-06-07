@@ -7,11 +7,10 @@ export const Navstate = atom({
 
 export const activeLanguage = atom({
   key: "activeLanguage",
-  default: 'HTML,CSS,JS',
+  default: "HTML,CSS,JS",
 });
 
 export const activeTheme = atom({
   key: "activeTheme",
-  default: 'vs',
+  default: "vs",
 });
-
