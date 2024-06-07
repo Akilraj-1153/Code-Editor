@@ -1,10 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import { files } from "../../Data/Data";
+import { activeTheme } from "../Atoms/Atoms";
+import { useRecoilState } from 'recoil';
+
 
 function MyEditor() {
   const [fileName, setFileName] = useState("script.js");
   const [code, setCode] = useState(files[fileName].value);
+  const [currentTheme, setCurrentTheme] = useRecoilState(activeTheme);
+
 
   useEffect(() => {
     setCode(files[fileName].value);
@@ -62,7 +67,7 @@ function MyEditor() {
         <Editor
           height="calc(100%)"
           width="100%"
-          theme="vs-dark"
+          theme={currentTheme}
           path={fileName}
           defaultLanguage={files[fileName].language}
           value={code}

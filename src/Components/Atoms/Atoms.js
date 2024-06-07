@@ -10,3 +10,8 @@ export const activeLanguage = atom({
   default: 'HTML,CSS,JS',
 });
 
+export const activeTheme = atom({
+  key: "activeTheme",
+  default: 'vs',
+});
+

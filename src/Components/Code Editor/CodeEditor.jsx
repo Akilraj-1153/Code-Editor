@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { activeLanguage } from "../Atoms/Atoms";
 import { useState, useRef } from "react";
 import MyEditor from "./MyEditor";
-import LangSelector from "./LangSelector";
+import LangThemeSelector from "./LangThemeSelector";
 import InOpDisplay from "./InOpDisplay";
 
 function CodeEditor() {
@@ -13,7 +13,7 @@ function CodeEditor() {
   return (
     <div className=" h-full w-full rounded-lg flex gap-2">
       <div className="h-full w-1/6 flex-col flex  rounded-md bg-white ">
-      <LangSelector></LangSelector>
+      <LangThemeSelector></LangThemeSelector>
       </div>
       <div className="h-full w-3/6 flex gap-2 flex-col">
         <MyEditor></MyEditor>
