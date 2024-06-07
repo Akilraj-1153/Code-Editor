@@ -4,7 +4,6 @@ import { files } from "../../Data/Data";
 import { activeTheme } from "../Atoms/Atoms";
 import { useRecoilState } from 'recoil';
 
-
 function MyEditor() {
   const [fileName, setFileName] = useState("script.js");
   const [code, setCode] = useState(files[fileName].value);
