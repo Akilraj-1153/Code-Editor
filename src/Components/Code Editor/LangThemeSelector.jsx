@@ -31,12 +31,20 @@ function LangThemeSelector() {
     <>
       <div className="h-[5vh] w-full bg-white/30 rounded-md flex items-center p-2 gap-2 justify-between">
         <h1
-          className="cursor-pointer"
+          className={`${
+            themeOrLang === "Languages"
+              ? "text-white bg-black p-1 rounded-md"
+              : "text-black"
+          } cursor-pointer`}
           onClick={() => setThemeOrLang("Languages")}
         >
           Languages
         </h1>
-        <h1 className="cursor-pointer" onClick={() => setThemeOrLang("Themes")}>
+        <h1  className={`${
+            themeOrLang === "Themes"
+              ? "text-white bg-black p-1 rounded-md"
+              : "text-black"
+          } cursor-pointer`} onClick={() => setThemeOrLang("Themes")}>
           Themes
         </h1>
       </div>

@@ -31,7 +31,7 @@ function MyEditor() {
             onClick={() => handleFileChange("index.html")}
             className={`${
               fileName === "index.html"
-                ? "text-text-white bg-black p-1 rounded-md"
+                ? "text-white bg-black p-1 rounded-md"
                 : "text-black"
             }`}
           >
@@ -42,7 +42,7 @@ function MyEditor() {
             onClick={() => handleFileChange("style.css")}
             className={`${
               fileName === "style.css"
-                ? "text-text-white bg-black p-1 rounded-md"
+                ? "text-white bg-black p-1 rounded-md"
                 : "text-black"
             }`}
           >
@@ -53,7 +53,7 @@ function MyEditor() {
             onClick={() => handleFileChange("script.js")}
             className={`${
               fileName === "script.js"
-                ? "text-text-white bg-black p-1 rounded-md"
+                ? "text-white bg-black p-1 rounded-md"
                 : "text-black"
             }`}
           >
