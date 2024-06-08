@@ -12,5 +12,5 @@ export const activeLanguage = atom({
 
 export const activeTheme = atom({
   key: "activeTheme",
-  default: "vs",
+  default: "ambiance",
 });

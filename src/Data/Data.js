@@ -1,212 +1,135 @@
-import tslogo from "../Assets/LOGO/icons8-typescript-48.png";
-import { loader } from "@monaco-editor/react";
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/ext-language_tools";
+
+import "ace-builds/src-noconflict/theme-chrome";
+import "ace-builds/src-noconflict/theme-clouds";
+import "ace-builds/src-noconflict/theme-crimson_editor";
+import "ace-builds/src-noconflict/theme-dreamweaver";
+import "ace-builds/src-noconflict/theme-solarized_light";
+import "ace-builds/src-noconflict/theme-sqlserver";
+import "ace-builds/src-noconflict/theme-textmate";
+import "ace-builds/src-noconflict/theme-tomorrow";
+import "ace-builds/src-noconflict/theme-xcode";
+import "ace-builds/src-noconflict/theme-ambiance";
+import "ace-builds/src-noconflict/theme-chaos";
+import "ace-builds/src-noconflict/theme-clouds_midnight";
+import "ace-builds/src-noconflict/theme-cobalt";
+import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-gob";
+import "ace-builds/src-noconflict/theme-gruvbox";
+import "ace-builds/src-noconflict/theme-idle_fingers";
+import "ace-builds/src-noconflict/theme-kr_theme";
+import "ace-builds/src-noconflict/theme-merbivore";
+import "ace-builds/src-noconflict/theme-merbivore_soft";
+import "ace-builds/src-noconflict/theme-mono_industrial";
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-pastel_on_dark";
+import "ace-builds/src-noconflict/theme-solarized_dark";
+import "ace-builds/src-noconflict/theme-terminal";
+import "ace-builds/src-noconflict/theme-tomorrow_night";
+import "ace-builds/src-noconflict/theme-tomorrow_night_blue";
+import "ace-builds/src-noconflict/theme-tomorrow_night_bright";
+import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/theme-vibrant_ink";
+
+import "ace-builds/src-noconflict/theme-dawn";
+import "ace-builds/src-noconflict/theme-eclipse";
+import "ace-builds/src-noconflict/theme-iplastic";
+import "ace-builds/src-noconflict/theme-katzenmilch";
+import "ace-builds/src-noconflict/theme-kuroir";
 
 export const languageOptions = [
-  {
-    name: "HTML  CSS  JS",
-    label: "HTML  CSS  JS",
-    value: "HTML  CSS  JS",
-  },
-  {
-    name: "JavaScript",
-    label: "JavaScript",
-    value: "javascript",
-  },
-  {
-    name: "Assembly",
-    label: "Assembly",
-    value: "assembly",
-  },
-  {
-    name: "Bash",
-    label: "Bash",
-    value: "bash",
-  },
-  {
-    name: "Basic",
-    label: "Basic",
-    value: "basic",
-  },
-  {
-    name: "C",
-    label: "C",
-    value: "c",
-  },
-  {
-    name: "C++",
-    label: "C++",
-    value: "cpp",
-  },
-  {
-    name: "Clojure",
-    label: "Clojure",
-    value: "clojure",
-  },
-  {
-    name: "C#",
-    label: "C#",
-    value: "csharp",
-  },
-  {
-    name: "COBOL",
-    label: "COBOL",
-    value: "cobol",
-  },
-  {
-    name: "Common Lisp",
-    label: "Common Lisp",
-    value: "lisp",
-  },
-  {
-    name: "D",
-    label: "D",
-    value: "d",
-  },
-  {
-    name: "Elixir",
-    label: "Elixir",
-    value: "elixir",
-  },
-  {
-    name: "Erlang",
-    label: "Erlang",
-    value: "erlang",
-  },
-  {
-    name: "Executable",
-    label: "Executable",
-    value: "exe",
-  },
-  {
-    name: "F#",
-    label: "F#",
-    value: "fsharp",
-  },
-  {
-    name: "Fortran",
-    label: "Fortran",
-    value: "fortran",
-  },
-  {
-    name: "Go",
-    label: "Go",
-    value: "go",
-  },
-  {
-    name: "Groovy",
-    label: "Groovy",
-    value: "groovy",
-  },
-  {
-    name: "Haskell",
-    label: "Haskell",
-    value: "haskell",
-  },
-  {
-    name: "Java",
-    label: "Java",
-    value: "java",
-  },
-  {
-    name: "Kotlin",
-    label: "Kotlin",
-    value: "kotlin",
-  },
-  {
-    name: "Lua",
-    label: "Lua",
-    value: "lua",
-  },
-  {
-    name: "Objective-C",
-    label: "Objective-C",
-    value: "objectivec",
-  },
-  {
-    name: "OCaml",
-    label: "OCaml",
-    value: "ocaml",
-  },
-  {
-    name: "Octave",
-    label: "Octave",
-    value: "octave",
-  },
-  {
-    name: "Pascal",
-    label: "Pascal",
-    value: "pascal",
-  },
-  {
-    name: "Perl",
-    label: "Perl",
-    value: "perl",
-  },
-  {
-    name: "PHP",
-    label: "PHP",
-    value: "php",
-  },
-  {
-    name: "Plain Text",
-    label: "Plain Text",
-    value: "text",
-  },
-  {
-    name: "Prolog",
-    label: "Prolog",
-    value: "prolog",
-  },
-  {
-    name: "Python",
-    label: "Python",
-    value: "python",
-  },
-  {
-    name: "R",
-    label: "R",
-    value: "r",
-  },
-  {
-    name: "Ruby",
-    label: "Ruby",
-    value: "ruby",
-  },
-  {
-    name: "Rust",
-    label: "Rust",
-    value: "rust",
-  },
-  {
-    name: "Scala",
-    label: "Scala",
-    value: "scala",
-  },
-  {
-    name: "SQL",
-    label: "SQL",
-    value: "sql",
-  },
-  {
-    name: "Swift",
-    label: "Swift",
-    value: "swift",
-  },
-  {
-    name: "TypeScript",
-    label: "TypeScript",
-    value: "typescript",
-  },
-  {
-    name: "Visual Basic.Net",
-    label: "Visual Basic.Net",
-    value: "vbnet",
-  },
+  { language: "matl", version: "22.5.0" },
+  { language: "matl", version: "22.7.4" },
+  { language: "bash", version: "5.2.0" },
+  { language: "befunge93", version: "0.2.0" },
+  { language: "bqn", version: "1.0.0" },
+  { language: "brachylog", version: "1.0.0" },
+  { language: "brainfuck", version: "2.7.3" },
+  { language: "cjam", version: "0.6.5" },
+  { language: "clojure", version: "1.10.3" },
+  { language: "cobol", version: "3.1.2" },
+  { language: "coffeescript", version: "2.5.1" },
+  { language: "cow", version: "1.0.0" },
+  { language: "crystal", version: "0.36.1" },
+  { language: "dart", version: "2.19.6" },
+  { language: "dash", version: "0.5.11" },
+  { language: "typescript", version: "1.32.3", runtime: "deno" },
+  { language: "javascript", version: "1.32.3", runtime: "deno" },
+  { language: "basic.net", version: "5.0.201", runtime: "dotnet" },
+  { language: "fsharp.net", version: "5.0.201", runtime: "dotnet" },
+  { language: "csharp.net", version: "5.0.201", runtime: "dotnet" },
+  { language: "fsi", version: "5.0.201", runtime: "dotnet" },
+  { language: "dragon", version: "1.9.8" },
+  { language: "elixir", version: "1.11.3" },
+  { language: "emacs", version: "27.1.0" },
+  { language: "emojicode", version: "1.0.2" },
+  { language: "erlang", version: "23.0.0" },
+  { language: "file", version: "0.0.1" },
+  { language: "forte", version: "1.0.0" },
+  { language: "forth", version: "0.7.3" },
+  { language: "freebasic", version: "1.9.0" },
+  { language: "awk", version: "5.1.0", runtime: "gawk" },
+  { language: "c", version: "10.2.0", runtime: "gcc" },
+  { language: "c++", version: "10.2.0", runtime: "gcc" },
+  { language: "d", version: "10.2.0", runtime: "gcc" },
+  { language: "fortran", version: "10.2.0", runtime: "gcc" },
+  { language: "go", version: "1.16.2" },
+  { language: "golfscript", version: "1.0.0" },
+  { language: "groovy", version: "3.0.7" },
+  { language: "haskell", version: "9.0.1" },
+  { language: "husk", version: "1.0.0" },
+  { language: "iverilog", version: "11.0.0" },
+  { language: "japt", version: "2.0.0" },
+  { language: "java", version: "15.0.2" },
+  { language: "jelly", version: "0.1.31" },
+  { language: "julia", version: "1.8.5" },
+  { language: "kotlin", version: "1.8.20" },
+  { language: "lisp", version: "2.1.2" },
+  { language: "llvm_ir", version: "12.0.1" },
+  { language: "lolcode", version: "0.11.2" },
+  { language: "lua", version: "5.4.4" },
+  { language: "csharp", version: "6.12.0", runtime: "mono" },
+  { language: "basic", version: "6.12.0", runtime: "mono" },
+  { language: "nasm", version: "2.15.5", runtime: "nasm" },
+  { language: "nasm64", version: "2.15.5", runtime: "nasm" },
+  { language: "nim", version: "1.6.2" },
+  { language: "javascript", version: "18.15.0", runtime: "node" },
+  { language: "ocaml", version: "4.12.0" },
+  { language: "octave", version: "8.1.0" },
+  { language: "osabie", version: "1.0.1" },
+  { language: "paradoc", version: "0.6.0" },
+  { language: "pascal", version: "3.2.2" },
+  { language: "perl", version: "5.36.0" },
+  { language: "php", version: "8.2.3" },
+  { language: "ponylang", version: "0.39.0" },
+  { language: "prolog", version: "8.2.4" },
+  { language: "pure", version: "0.68.0" },
+  { language: "powershell", version: "7.1.4", runtime: "pwsh" },
+  { language: "pyth", version: "1.0.0" },
+  { language: "python2", version: "2.7.18" },
+  { language: "python", version: "3.10.0" },
+  { language: "racket", version: "8.3.0" },
+  { language: "raku", version: "6.100.0" },
+  { language: "retina", version: "1.2.0" },
+  { language: "rockstar", version: "1.0.0" },
+  { language: "rscript", version: "4.1.1" },
+  { language: "ruby", version: "3.0.1" },
+  { language: "rust", version: "1.68.2" },
+  { language: "samarium", version: "0.3.1" },
+  { language: "scala", version: "3.2.2" },
+  { language: "smalltalk", version: "3.2.3" },
+  { language: "sqlite3", version: "3.36.0" },
+  { language: "swift", version: "5.3.3" },
+  { language: "typescript", version: "5.0.3" },
+  { language: "vlang", version: "0.3.3" },
+  { language: "vyxal", version: "2.4.1" },
+  { language: "yeethon", version: "3.10.0" },
+  { language: "zig", version: "0.10.1" },
 ];
-
-// Removed duplicates manually
-
-
 
 export const files = {
   "script.js": {
@@ -240,65 +163,60 @@ export const files = {
   },
 };
 
-export const monacoThemes = {
-  active4d: "Active4D",
-  "all-hallows-eve": "All Hallows Eve",
-  amy: "Amy",
-  "birds-of-paradise": "Birds of Paradise",
-  blackboard: "Blackboard",
-  "brilliance-black": "Brilliance Black",
-  "brilliance-dull": "Brilliance Dull",
-  "chrome-devtools": "Chrome DevTools",
-  "clouds-midnight": "Clouds Midnight",
-  clouds: "Clouds",
-  cobalt: "Cobalt",
-  dawn: "Dawn",
-  dreamweaver: "Dreamweaver",
-  eiffel: "Eiffel",
-  "espresso-libre": "Espresso Libre",
-  github: "GitHub",
-  idle: "IDLE",
-  katzenmilch: "Katzenmilch",
-  "kuroir-theme": "Kuroir Theme",
-  lazy: "LAZY",
-  "magicwb--amiga-": "MagicWB (Amiga)",
-  "merbivore-soft": "Merbivore Soft",
-  merbivore: "Merbivore",
-  "monokai-bright": "Monokai Bright",
-  monokai: "Monokai",
-  "night-owl": "Night Owl",
-  "oceanic-next": "Oceanic Next",
-  "pastels-on-dark": "Pastels on Dark",
-  "slush-and-poppies": "Slush and Poppies",
-  "solarized-dark": "Solarized-dark",
-  "solarized-light": "Solarized-light",
-  spacecadet: "SpaceCadet",
-  sunburst: "Sunburst",
-  "textmate--mac-classic-": "Textmate (Mac Classic)",
-  "tomorrow-night-blue": "Tomorrow-Night-Blue",
-  "tomorrow-night-bright": "Tomorrow-Night-Bright",
-  "tomorrow-night-eighties": "Tomorrow-Night-Eighties",
-  "tomorrow-night": "Tomorrow-Night",
-  tomorrow: "Tomorrow",
-  twilight: "Twilight",
-  "upstream-sunburst": "Upstream Sunburst",
-  "vibrant-ink": "Vibrant Ink",
-  "xcode-default": "Xcode_default",
-  zenburnesque: "Zenburnesque",
-  iplastic: "iPlastic",
-  idlefingers: "idleFingers",
-  krtheme: "krTheme",
-  monoindustrial: "monoindustrial",
-};
-
-export const defineTheme = (theme) => {
-  return new Promise((res) => {
-    Promise.all([
-      loader.init(),
-      import(`monaco-themes/themes/${monacoThemes[theme]}.json`),
-    ]).then(([monaco, themeData]) => {
-      monaco.editor.defineTheme(theme, themeData);
-      res();
-    });
-  });
+export const themes = {
+  chrome: { themeValue: "chrome", themeName: "Chrome" },
+  clouds: { themeValue: "clouds", themeName: "Clouds" },
+  crimson_editor: { themeValue: "crimson_editor", themeName: "Crimson Editor" },
+  dawn: { themeValue: "dawn", themeName: "Dawn" },
+  dreamweaver: { themeValue: "dreamweaver", themeName: "Dreamweaver" },
+  eclipse: { themeValue: "eclipse", themeName: "Eclipse" },
+  github: { themeValue: "github", themeName: "GitHub" },
+  iplastic: { themeValue: "iplastic", themeName: "IPlastic" },
+  katzenmilch: { themeValue: "katzenmilch", themeName: "KatzenMilch" },
+  kuroir: { themeValue: "kuroir", themeName: "Kuroir" },
+  solarized_light: {
+    themeValue: "solarized_light",
+    themeName: "Solarized Light",
+  },
+  sqlserver: { themeValue: "sqlserver", themeName: "SQL Server" },
+  textmate: { themeValue: "textmate", themeName: "TextMate" },
+  tomorrow: { themeValue: "tomorrow", themeName: "Tomorrow" },
+  xcode: { themeValue: "xcode", themeName: "XCode" },
+  ambiance: { themeValue: "ambiance", themeName: "Ambiance" },
+  chaos: { themeValue: "chaos", themeName: "Chaos" },
+  clouds_midnight: {
+    themeValue: "clouds_midnight",
+    themeName: "Clouds Midnight",
+  },
+  cobalt: { themeValue: "cobalt", themeName: "Cobalt" },
+  dracula: { themeValue: "dracula", themeName: "Dracula" },
+  gob: { themeValue: "gob", themeName: "Greeon on Black" },
+  gruvbox: { themeValue: "gruvbox", themeName: "Gruvbox" },
+  idle_fingers: { themeValue: "idle_fingers", themeName: "idle Fingers" },
+  kr_theme: { themeValue: "kr_theme", themeName: "krTheme" },
+  merbivore: { themeValue: "merbivore", themeName: "Merbivore" },
+  merbivore_soft: { themeValue: "merbivore_soft", themeName: "Merbivore Soft" },
+  mono_industrial: {
+    themeValue: "mono_industrial",
+    themeName: "Mono Industrial",
+  },
+  monokai: { themeValue: "monokai", themeName: "Monokai" },
+  pastel_on_dark: { themeValue: "pastel_on_dark", themeName: "Pastel on Dark" },
+  solarized_dark: { themeValue: "solarized_dark", themeName: "Solarized Dark" },
+  terminal: { themeValue: "terminal", themeName: "Terminal" },
+  tomorrow_night: { themeValue: "tomorrow_night", themeName: "Tomorrow Night" },
+  tomorrow_night_blue: {
+    themeValue: "tomorrow_night_blue",
+    themeName: "Tomorrow Night Blue",
+  },
+  tomorrow_night_bright: {
+    themeValue: "tomorrow_night_bright",
+    themeName: "Tomorrow Night Bright",
+  },
+  tomorrow_night_eighties: {
+    themeValue: "tomorrow_night_eighties",
+    themeName: "Tomorrow Night 80s",
+  },
+  twilight: { themeValue: "twilight", themeName: "Twilight" },
+  vibrant_ink: { themeValue: "vibrant_ink", themeName: "Vibrant Ink" },
 };

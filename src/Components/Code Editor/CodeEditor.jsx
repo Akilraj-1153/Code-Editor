@@ -1,8 +1,4 @@
 import React from "react";
-import { files } from "../../Data/Data";
-import { useRecoilState } from "recoil";
-import { activeLanguage } from "../Atoms/Atoms";
-import { useState, useRef } from "react";
 import MyEditor from "./MyEditor";
 import LangThemeSelector from "./LangThemeSelector";
 import InOpDisplay from "./InOpDisplay";

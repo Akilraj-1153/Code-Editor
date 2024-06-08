@@ -2,23 +2,20 @@ import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { activeLanguage, activeTheme } from "../Atoms/Atoms";
 import { languageOptions } from "../../Data/Data";
-import { monacoThemes } from "../../Data/Data";
-import { defineTheme } from "../../Data/Data";
+import { themes } from "../../Data/Data";
 
 function LangThemeSelector() {
   const [currentLanguage, setCurrentLanguage] = useRecoilState(activeLanguage);
   const [currentTheme, setCurrentTheme] = useRecoilState(activeTheme);
   const [themeOrLang, setThemeOrLang] = useState("Languages");
 
-  const themes = Object.entries(monacoThemes).map(([themeId, themeName]) => ({
-    label: themeName,
-    value: themeId,
-    key: themeId,
-  }));
-
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);
-    defineTheme(theme).then(() => setCurrentTheme(theme));
+    
+  };
+
+  const handleLanguageChange = (language) => {
+    setCurrentLanguage(language);
   };
 
   return (
@@ -50,30 +47,32 @@ function LangThemeSelector() {
           languageOptions.map((lang, index) => (
             <div
               key={index}
-              onClick={() => setCurrentLanguage(lang.value)}
+              onClick={() => handleLanguageChange(lang.language)} // Update language here
               className={`p-3 rounded-md h-fit w-full cursor-pointer transition-transform ${
-                currentLanguage === lang.value
+                currentLanguage === lang.language
                   ? "bg-black text-white"
                   : "bg-white hover:bg-black hover:text-white"
               }`}
             >
-              {lang.label}
+              {lang.language}
+              <span className="px-2"></span>
+              {lang.version}
             </div>
           ))}
         {themeOrLang === "Themes" &&
-          themes.map((theme, index) => (
+          Object.entries(themes).map(([key, theme], index) => (
             <div
-              key={index}
-              onClick={() => handleThemeChange(theme.value)}
-              className={`p-3 rounded-md h-fit w-full cursor-pointer transition-transform ${
-                currentTheme === theme.value
-                  ? "bg-black text-white"
-                  : "bg-white hover:bg-black hover:text-white"
-              }`}
+                key={index}
+                onClick={() => handleThemeChange(theme.themeValue)}
+                className={`p-3 rounded-md h-fit w-full cursor-pointer transition-transform ${
+                    currentTheme === theme.themeValue
+                        ? "bg-black text-white"
+                        : "bg-white hover:bg-black hover:text-white"
+                }`}
             >
-              {theme.label}
+                {theme.themeName}
             </div>
-          ))}
+        ))}
       </div>
     </>
   );

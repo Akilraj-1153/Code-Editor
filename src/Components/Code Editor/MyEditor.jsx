@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import LangEditor from './LangEditor';
 
 function MyEditor() {
-  const [currentLanguage, setCurrentLanguage] = useRecoilState(activeLanguage);
+  const [currentLanguage] = useRecoilState(activeLanguage);
 
   return (
     <div className='h-full'>
