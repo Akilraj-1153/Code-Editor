@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { files } from "../../Data/Data";
 import { activeTheme } from "../Atoms/Atoms";
 import { useRecoilState } from "recoil";
+import { files } from "../../Data/Data";
 
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-html";
+import "ace-builds/src-noconflict/mode-css";
+import 'ace-builds/src-noconflict/mode-javascript';
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
 
@@ -12,6 +14,8 @@ function Html_Css_Js() {
   const [fileName, setFileName] = useState("script.js");
   const [code, setCode] = useState(files[fileName].value);
   const [currentTheme] = useRecoilState(activeTheme);
+
+  
 
   useEffect(() => {
     setCode(files[fileName].value);
@@ -67,15 +71,16 @@ function Html_Css_Js() {
       </div>
       <div className="h-[86vh] w-full rounded-md overflow-hidden">
         <AceEditor
-          mode="java"
+        setOptions={{ useWorker: false }}
+          mode={files[fileName].language}
           theme={currentTheme}
           onChange={handleEditorChange}
           name="UNIQUE_ID_OF_DIV"
           className="h-full w-full"
           style={{ height: "100%", width: "100%" }}
           editorProps={{ $blockScrolling: true }}
+          value={code}
         />
-        ,
       </div>
     </div>
   );
