@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { activeLanguage, activeTheme } from "../Atoms/Atoms";
-import { languages } from "../../Data/Data";
+import { languageOptions } from "../../Data/Data";
 import { monacoThemes } from "../../Data/Data";
 import { defineTheme } from "../../Data/Data";
 
@@ -16,16 +16,10 @@ function LangThemeSelector() {
     key: themeId,
   }));
 
-  function handleThemeChange(th) {
-    const theme = th;
-    console.log("theme...", theme);
-
-    if (["light", "vs-dark"].includes(theme)) {
-      setCurrentTheme(theme);
-    } else {
-      defineTheme(theme).then((_) => setCurrentTheme(theme));
-    }
-  }
+  const handleThemeChange = (theme) => {
+    setCurrentTheme(theme);
+    defineTheme(theme).then(() => setCurrentTheme(theme));
+  };
 
   return (
     <>
@@ -40,27 +34,30 @@ function LangThemeSelector() {
         >
           Languages
         </h1>
-        <h1  className={`${
+        <h1
+          className={`${
             themeOrLang === "Themes"
               ? "text-white bg-black p-1 rounded-md"
               : "text-black"
-          } cursor-pointer`} onClick={() => setThemeOrLang("Themes")}>
+          } cursor-pointer`}
+          onClick={() => setThemeOrLang("Themes")}
+        >
           Themes
         </h1>
       </div>
       <div className="h-[86vh] w-full bg-white rounded-md overflow-scroll p-2 flex flex-col gap-1">
         {themeOrLang === "Languages" &&
-          languages.map((lang, index) => (
+          languageOptions.map((lang, index) => (
             <div
               key={index}
-              onClick={() => setCurrentLanguage(lang)}
+              onClick={() => setCurrentLanguage(lang.value)}
               className={`p-3 rounded-md h-fit w-full cursor-pointer transition-transform ${
-                currentLanguage === lang
+                currentLanguage === lang.value
                   ? "bg-black text-white"
                   : "bg-white hover:bg-black hover:text-white"
               }`}
             >
-              {lang}
+              {lang.label}
             </div>
           ))}
         {themeOrLang === "Themes" &&

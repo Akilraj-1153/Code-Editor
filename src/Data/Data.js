@@ -1,37 +1,212 @@
 import tslogo from "../Assets/LOGO/icons8-typescript-48.png";
 import { loader } from "@monaco-editor/react";
 
-export const languages = [
-  "HTML,CSS,JS",
-  "TypeScript",
-  "JavaScript",
-  "CSS",
-  "LESS",
-  "SCSS",
-  "JSON",
-  "HTML",
-  "XML",
-  "PHP",
-  "C#",
-  "C++",
-  "Razor",
-  "Markdown",
-  "Diff",
-  "Java",
-  "VB",
-  "CoffeeScript",
-  "Handlebars",
-  "Batch",
-  "Pug",
-  "F#",
-  "Lua",
-  "Powershell",
-  "Python",
-  "Ruby",
-  "SASS",
-  "R",
-  "Objective-C",
+export const languageOptions = [
+  {
+    name: "HTML  CSS  JS",
+    label: "HTML  CSS  JS",
+    value: "HTML  CSS  JS",
+  },
+  {
+    name: "JavaScript",
+    label: "JavaScript",
+    value: "javascript",
+  },
+  {
+    name: "Assembly",
+    label: "Assembly",
+    value: "assembly",
+  },
+  {
+    name: "Bash",
+    label: "Bash",
+    value: "bash",
+  },
+  {
+    name: "Basic",
+    label: "Basic",
+    value: "basic",
+  },
+  {
+    name: "C",
+    label: "C",
+    value: "c",
+  },
+  {
+    name: "C++",
+    label: "C++",
+    value: "cpp",
+  },
+  {
+    name: "Clojure",
+    label: "Clojure",
+    value: "clojure",
+  },
+  {
+    name: "C#",
+    label: "C#",
+    value: "csharp",
+  },
+  {
+    name: "COBOL",
+    label: "COBOL",
+    value: "cobol",
+  },
+  {
+    name: "Common Lisp",
+    label: "Common Lisp",
+    value: "lisp",
+  },
+  {
+    name: "D",
+    label: "D",
+    value: "d",
+  },
+  {
+    name: "Elixir",
+    label: "Elixir",
+    value: "elixir",
+  },
+  {
+    name: "Erlang",
+    label: "Erlang",
+    value: "erlang",
+  },
+  {
+    name: "Executable",
+    label: "Executable",
+    value: "exe",
+  },
+  {
+    name: "F#",
+    label: "F#",
+    value: "fsharp",
+  },
+  {
+    name: "Fortran",
+    label: "Fortran",
+    value: "fortran",
+  },
+  {
+    name: "Go",
+    label: "Go",
+    value: "go",
+  },
+  {
+    name: "Groovy",
+    label: "Groovy",
+    value: "groovy",
+  },
+  {
+    name: "Haskell",
+    label: "Haskell",
+    value: "haskell",
+  },
+  {
+    name: "Java",
+    label: "Java",
+    value: "java",
+  },
+  {
+    name: "Kotlin",
+    label: "Kotlin",
+    value: "kotlin",
+  },
+  {
+    name: "Lua",
+    label: "Lua",
+    value: "lua",
+  },
+  {
+    name: "Objective-C",
+    label: "Objective-C",
+    value: "objectivec",
+  },
+  {
+    name: "OCaml",
+    label: "OCaml",
+    value: "ocaml",
+  },
+  {
+    name: "Octave",
+    label: "Octave",
+    value: "octave",
+  },
+  {
+    name: "Pascal",
+    label: "Pascal",
+    value: "pascal",
+  },
+  {
+    name: "Perl",
+    label: "Perl",
+    value: "perl",
+  },
+  {
+    name: "PHP",
+    label: "PHP",
+    value: "php",
+  },
+  {
+    name: "Plain Text",
+    label: "Plain Text",
+    value: "text",
+  },
+  {
+    name: "Prolog",
+    label: "Prolog",
+    value: "prolog",
+  },
+  {
+    name: "Python",
+    label: "Python",
+    value: "python",
+  },
+  {
+    name: "R",
+    label: "R",
+    value: "r",
+  },
+  {
+    name: "Ruby",
+    label: "Ruby",
+    value: "ruby",
+  },
+  {
+    name: "Rust",
+    label: "Rust",
+    value: "rust",
+  },
+  {
+    name: "Scala",
+    label: "Scala",
+    value: "scala",
+  },
+  {
+    name: "SQL",
+    label: "SQL",
+    value: "sql",
+  },
+  {
+    name: "Swift",
+    label: "Swift",
+    value: "swift",
+  },
+  {
+    name: "TypeScript",
+    label: "TypeScript",
+    value: "typescript",
+  },
+  {
+    name: "Visual Basic.Net",
+    label: "Visual Basic.Net",
+    value: "vbnet",
+  },
 ];
+
+// Removed duplicates manually
+
+
 
 export const files = {
   "script.js": {
