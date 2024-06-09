@@ -1,18 +1,24 @@
-const axios = require("axios"); // legacy way
+import axios from "axios";
 
 // Create an Axios instance with the base URL
 const API = axios.create({
   baseURL: "https://emkc.org/api/v2/piston",
 });
 
-// Function to get runtimes
-const getRuntimes = async () => {
+export const executeCode = async (servercode, serverlang, serverversion) => {
   try {
-    const response = await API.get("/runtimes");
-    console.log(response.data);
+    const response = await API.post("/execute", {
+      language: serverlang,
+      version: serverversion,
+      files: [
+        {
+          content: servercode,
+        },
+      ],
+    });
+    return response.data;
   } catch (error) {
-    console.error("Error fetching runtimes:", error);
+    console.error("Error executing code:", error);
+    throw error;
   }
 };
-
-getRuntimes();

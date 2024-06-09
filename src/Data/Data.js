@@ -59,7 +59,7 @@ export const languageOptions = [
   // { language: "dart", version: "2.19.6" },
   // { language: "dash", version: "0.5.11" },
   // { language: "typescript", version: "1.32.3", runtime: "deno" },
-  // { language: "javascript", version: "1.32.3", runtime: "deno" },
+  { language: "javascript", version: "1.32.3", runtime: "deno" },
   // { language: "basic.net", version: "5.0.201", runtime: "dotnet" },
   // { language: "fsharp.net", version: "5.0.201", runtime: "dotnet" },
   // { language: "csharp.net", version: "5.0.201", runtime: "dotnet" },

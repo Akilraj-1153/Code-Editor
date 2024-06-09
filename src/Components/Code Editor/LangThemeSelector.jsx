@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
-import { activeLanguage, activeTheme } from "../Atoms/Atoms";
+import { activeLanguage, activeTheme,languageToServer,versionToServer } from "../Atoms/Atoms";
 import { languageOptions } from "../../Data/Data";
 import { themes } from "../../Data/Data";
 
@@ -8,14 +8,23 @@ function LangThemeSelector() {
   const [currentLanguage, setCurrentLanguage] = useRecoilState(activeLanguage);
   const [currentTheme, setCurrentTheme] = useRecoilState(activeTheme);
   const [themeOrLang, setThemeOrLang] = useState("Languages");
+  const [serverlang,setserverlang]=useRecoilState(languageToServer)
+  const [serverversion,setserverversion]=useRecoilState(versionToServer)
+
+  console.log(serverlang)
+  console.log(serverversion)
+
 
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);
     
+    
   };
 
-  const handleLanguageChange = (language) => {
+  const handleLanguageChange = (language,version) => {
     setCurrentLanguage(language);
+    setserverlang(language)
+    setserverversion(version)
   };
 
   return (
@@ -47,7 +56,7 @@ function LangThemeSelector() {
           languageOptions.map((lang, index) => (
             <div
               key={index}
-              onClick={() => handleLanguageChange(lang.language)} // Update language here
+              onClick={() => handleLanguageChange(lang.language,lang.version)} // Update language here
               className={`p-3 rounded-md h-fit w-full cursor-pointer transition-transform ${
                 currentLanguage === lang.language
                   ? "bg-black text-white"

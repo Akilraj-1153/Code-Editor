@@ -3,10 +3,10 @@ import { files } from "../../Data/Data";
 import { activeTheme } from "../Atoms/Atoms";
 import { useRecoilState } from "recoil";
 import { useState } from "react";
-import { activeLanguage } from "../Atoms/Atoms";
+import { activeLanguage,codeToServer } from "../Atoms/Atoms";
 
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-java";
+import 'ace-builds/src-noconflict/mode-javascript';
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
 
@@ -15,10 +15,11 @@ function LangEditor() {
   const [fileName, setFileName] = useState("script.js");
   const [code, setCode] = useState(files[fileName].value);
   const [currentTheme] = useRecoilState(activeTheme);
+  const [servercode,setservercode]=useRecoilState(codeToServer)
+  console.log(servercode)
 
   const handleEditorChange = (value) => {
-    setCode(value);
-    files[fileName].value = value;
+    setservercode(value);
   };
 
   return (
@@ -32,7 +33,8 @@ function LangEditor() {
       </div>
       <div className="h-[86vh] w-full rounded-md overflow-hidden">
         <AceEditor
-          mode="java"
+        setOptions={{ useWorker: false }}
+          mode="javascript"
           theme={currentTheme}
           onChange={handleEditorChange}
           name="UNIQUE_ID_OF_DIV"

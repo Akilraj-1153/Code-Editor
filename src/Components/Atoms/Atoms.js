@@ -14,3 +14,19 @@ export const activeTheme = atom({
   key: "activeTheme",
   default: "ambiance",
 });
+
+export const codeToServer = atom({
+  key: "codeToServer",
+  default: null,
+});
+
+export const versionToServer = atom({
+  key: "versionToServer",
+  default: null,
+});
+
+export const languageToServer = atom({
+  key: "languageToServer",
+  default: ``,
+});
+
