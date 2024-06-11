@@ -85,6 +85,8 @@ function NavBar() {
              onClick={() => {
               navigate("/");
               setCurrentNavBtn("Home");
+              setNaveiconactive(false)
+
             }}
               className={`${
                 currentnavbtn === "Home"
@@ -98,6 +100,8 @@ function NavBar() {
               onClick={() => {
                 navigate("code_editor");
                 setCurrentNavBtn("Code Editor");
+                setNaveiconactive(false)
+
               }}
 
               className={`${
@@ -112,6 +116,7 @@ function NavBar() {
               onClick={() => {
                 navigate("about/aboutce");
                 setCurrentNavBtn("About");
+                setNaveiconactive(false)
               }}
               className={`${
                 currentnavbtn === "About"
