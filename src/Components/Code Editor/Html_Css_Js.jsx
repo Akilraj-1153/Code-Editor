@@ -11,7 +11,7 @@ import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 function Html_Css_Js() {
-  const [fileName, setFileName] = useState("script.js");
+  const [fileName, setFileName] = useState("index.html");
   const [code, setCode] = useState(files[fileName].value);
   const [currentTheme] = useRecoilState(activeTheme);
 

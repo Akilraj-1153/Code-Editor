@@ -5,6 +5,11 @@ export const Navstate = atom({
   default: false,
 });
 
+export const Navbtnstate = atom({
+  key: "Navbtnstate",
+  default: 'Home',
+});
+
 export const activeLanguage = atom({
   key: "activeLanguage",
   default: "HTML  CSS  JS",
@@ -12,7 +17,7 @@ export const activeLanguage = atom({
 
 export const activeTheme = atom({
   key: "activeTheme",
-  default: "ambiance",
+  default: "chrome",
 });
 
 export const codeToServer = atom({

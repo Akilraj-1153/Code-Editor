@@ -61,9 +61,9 @@ function InOpDisplay() {
     <>
       <div className="h-[5vh] w-full bg-white/30 rounded-md flex items-center p-2 gap-2">
         {currentLanguage === "HTML  CSS  JS" ? (
-          <button onClick={handleCodeRun}>Run</button>
+          <button className="bg-black text-white p-1 px-2 rounded-md" onClick={handleCodeRun}>Run</button>
         ) : (
-          <button onClick={handleServerCodeRun}>Run</button>
+          <button className="bg-black text-white p-1 px-2 rounded-md"  onClick={handleServerCodeRun}>Run</button>
         )}
       </div>
       <iframe
