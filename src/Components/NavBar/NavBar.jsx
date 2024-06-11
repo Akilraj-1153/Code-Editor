@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { RiExpandLeftFill } from "react-icons/ri";
 import { RiExpandRightFill } from "react-icons/ri";
 import { Navstate } from "../Atoms/Atoms";
 import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
   const [EELogo] = useState(require("../../Assets/11 White.png"));
   const [naviconactive, setNaveiconactive] = useRecoilState(Navstate);
+  const navigate = useNavigate();
+
 
   return (
     <div className="h-fit w-full flex flex-col gap-2">
@@ -21,24 +23,25 @@ function NavBar() {
         </div>
         <div className="flex gap-2 justify-end h-full w-full items-center mr-10 font-mateSc text-xl select-none xs:hidden md:flex">
           <div className="flex bg-white rounded-md justify-center tems-center">
-            <Link
-              to="/"
+            <button
+              onClick={()=>navigate("/")}
               className="text-black font-bold  bg-white rounded-md p-2 scale-75 hover:scale-90 transition-transform "
             >
               Home
-            </Link>
-            <Link
-              to="code_editor"
+            </button>
+            <button
+              onClick={()=>navigate("code_editor")}
+
               className="text-black font-bold bg-white rounded-md p-2  scale-75 hover:scale-90 transition-transform "
             >
               Code Editor
-            </Link>
-            <Link
-              to="about"
+            </button>
+            <button
+              onClick={()=>navigate("about/aboutce")}
               className="text-black font-bold bg-white rounded-md p-2  scale-75 hover:scale-90 transition-transform "
             >
               About
-            </Link>
+            </button>
           </div>
         </div>
         <div className="h-full w-full justify-end  flex  items-center mr-2  xs:flex md:hidden">
@@ -56,9 +59,15 @@ function NavBar() {
       {naviconactive && (
         <div className="bg-stone-900 h-[20vh] w-full rounded-lg  xs:flex md:hidden">
           <div className="flex gap-4 justify-center h-full w-full items-end p-2 font-mateSc text-xl select-none flex-col">
-            <Link className="text-white ">Home</Link>
-            <Link className="text-white ">Code Editor</Link>
-            <Link className="text-white ">About</Link>
+            <button 
+              onClick={()=>navigate("/")}
+            className="text-white ">Home</button>
+            <button 
+              onClick={()=>navigate("code_editor")}
+            className="text-white ">Code Editor</button>
+            <button 
+              onClick={()=>navigate("about/aboutce")}
+              className="text-white ">About</button>
           </div>
         </div>
       )}

@@ -45,6 +45,7 @@ function Html_Css_Js() {
           >
             index.html
           </button>
+          <hr className="border-2 border-black"></hr>
           <button
             disabled={fileName === "style.css"}
             onClick={() => handleFileChange("style.css")}
@@ -56,6 +57,8 @@ function Html_Css_Js() {
           >
             style.css
           </button>
+          <hr className="border-2 border-black"></hr>
+
           <button
             disabled={fileName === "script.js"}
             onClick={() => handleFileChange("script.js")}

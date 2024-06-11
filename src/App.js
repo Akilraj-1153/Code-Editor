@@ -8,14 +8,14 @@ import About from "./Components/About/About";
 function App() {
   return (
     <div className="h-screen w-screen bg-black">
-      <div className="h-[7vh] w-full ">
-        <NavBar></NavBar>
+      <div className="h-[7vh] w-full">
+        <NavBar />
       </div>
       <div className="h-[93vh] w-full bg-black p-2 rounded-lg">
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="code_editor" element={<CodeEditor></CodeEditor>}></Route>
-          <Route path="about" element={<About></About>}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="code_editor" element={<CodeEditor />} />
+          <Route path="about/*" element={<About />} />
         </Routes>
       </div>
     </div>
