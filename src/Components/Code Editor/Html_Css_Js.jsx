@@ -45,7 +45,7 @@ function Html_Css_Js() {
           >
             index.html
           </button>
-          <hr className="border-2 border-black"></hr>
+          <hr className="border-r-2 border-black h-[4vh]"></hr>
           <button
             disabled={fileName === "style.css"}
             onClick={() => handleFileChange("style.css")}
@@ -57,7 +57,8 @@ function Html_Css_Js() {
           >
             style.css
           </button>
-          <hr className="border-2 border-black"></hr>
+          <hr className="border-r-2 border-black h-[4vh]"></hr>
+
 
           <button
             disabled={fileName === "script.js"}
@@ -83,6 +84,7 @@ function Html_Css_Js() {
           style={{ height: "100%", width: "100%" }}
           editorProps={{ $blockScrolling: true }}
           value={code}
+          fontSize={15}
         />
       </div>
     </div>
