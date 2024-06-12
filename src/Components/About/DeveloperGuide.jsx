@@ -55,7 +55,7 @@ export const executeCode = async (servercode, serverlang, serverversion) => {
 `;
 
   return (
-    <div className="px-10 font-mono">
+    <div className=" xs:px-2 md:px-5 lg:px-10 font-mono">
       <h1 className="text-center text-2xl font-bold font-mateSc">
         Guide to the Developer Who Tries to Recreate a Code Editor
       </h1>
