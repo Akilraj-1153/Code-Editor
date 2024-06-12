@@ -42,7 +42,7 @@ import "ace-builds/src-noconflict/theme-katzenmilch";
 import "ace-builds/src-noconflict/theme-kuroir";
 
 export const languageOptions = [
-  { language: "HTML  CSS  JS", version: "" },
+  { language: "HTML  CSS  JS", version: null },
   { language: "javascript", version: "1.32.3", runtime: "deno" },
   { language: "matl", version: "22.5.0" },
   { language: "matl", version: "22.7.4" },
