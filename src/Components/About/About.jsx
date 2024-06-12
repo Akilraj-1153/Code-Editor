@@ -26,12 +26,12 @@ function About() {
                 >
                   Guide For Developer
                 </button>
-                <button
+                {/* <button
                   className="h-full text-white bg-black px-4 lg:px-10 md:px-7 py-1 rounded-md font-mate whitespace-nowrap"
                   onClick={() => navigate("aboutdeveloper")}
                 >
                   About Developer
-                </button>
+                </button> */}
                 <a
                   href="https://github.com/yourgithub"
                   target="_blank"
@@ -46,10 +46,9 @@ function About() {
         </div>
         <div className="w-full h-[90vh] bg-white overflow-scroll rounded-md">
           <Routes>
-            {/* <Route path="/" element={<AboutCE />} /> */}
             <Route path="aboutce" element={<AboutCE />} />
             <Route path="developerguide" element={<DeveloperGuide />} />
-            <Route path="aboutdeveloper" element={<AboutMe />} />
+            {/* <Route path="aboutdeveloper" element={<AboutMe />} /> */}
           </Routes>
         </div>
       </div>

@@ -67,7 +67,7 @@ function LangThemeSelector() {
           <div className="flex lg:flex-col gap-1 h-full overflow-scroll xs:flex-row rounded-md">
             {themeOrLang === "Languages" &&
               languageOptions.map((lang, index) => (
-                <div className="flex lg:flex-col gap-1 p-1 xs:flex-row items-center  h-full w-full" key={index}>
+                <div className="flex lg:flex-col gap-1 xs:flex-row items-center  h-full w-full" key={index}>
                   <div
                     onClick={() =>
                       handleLanguageChange(lang.language, lang.version)

@@ -11,10 +11,10 @@ function MyEditor() {
 
   return (
     <div className='h-full'>
-      { currentLanguage ==='HTML  CSS  JS'&&
+      { currentLanguage ==='HTML CSS JS'&&
       <Html_Css_Js></Html_Css_Js>
       }
-      {currentLanguage !=='HTML  CSS  JS'&&
+      {currentLanguage !=='HTML CSS JS'&&
     <LangEditor></LangEditor>
       }
     </div>
