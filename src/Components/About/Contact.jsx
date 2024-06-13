@@ -44,6 +44,7 @@ function Contact() {
       setIsSubmitting(false);
   };
   
+  
 
   return (
     <div className="xs:px-2 md:px-5 lg:px-10 font-mono h-full w-full">
