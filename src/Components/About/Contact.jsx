@@ -20,7 +20,7 @@ function Contact() {
     const sendEmail = async (data) => {
       setIsSubmitting(true);
       try {
-          const response = await fetch('https://proxy-server-liq8sgnbr-akilraj-ns-projects.vercel.app/emails', {
+          const response = await fetch('https://proxy-server-five-kappa.vercel.app/emails', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
