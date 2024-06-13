@@ -39,7 +39,7 @@ function Html_Css_Js() {
             onClick={() => handleFileChange("index.html")}
             className={`h-full  px-2 ${
               fileName === "index.html"
-                ? "text-white bg-black p-1 rounded-md"
+                ? "text-white bg-black p-1 rounded-md font-bold"
                 : "text-black"
             }`}
           >
@@ -51,7 +51,7 @@ function Html_Css_Js() {
             onClick={() => handleFileChange("style.css")}
             className={`h-full px-2 ${
               fileName === "style.css"
-                ? "text-white bg-black p-1 rounded-md"
+                ? "text-white bg-black p-1 rounded-md font-bold"
                 : "text-black"
             }`}
           >
@@ -65,7 +65,7 @@ function Html_Css_Js() {
             onClick={() => handleFileChange("script.js")}
             className={`h-full px-2 ${
               fileName === "script.js"
-                ? "text-white bg-black p-1 rounded-md"
+                ? "text-white bg-black p-1 rounded-md font-bold"
                 : "text-black"
             }`}
           >

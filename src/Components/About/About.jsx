@@ -4,6 +4,7 @@ import { BsGithub } from "react-icons/bs";
 import DeveloperGuide from "./DeveloperGuide";
 import AboutMe from "./AboutMe";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import Contact from "./Contact";
 
 function About() {
   const navigate = useNavigate();
@@ -26,12 +27,12 @@ function About() {
                 >
                   Guide For Developer
                 </button>
-                {/* <button
+                <button
                   className="h-full text-white bg-black px-4 lg:px-10 md:px-7 py-1 rounded-md font-mate whitespace-nowrap"
                   onClick={() => navigate("aboutdeveloper")}
                 >
-                  About Developer
-                </button> */}
+                  Contact
+                </button>
                 <a
                   href="https://github.com/Akilraj-1153/Code-Editor"
                   target="_blank"
@@ -48,7 +49,7 @@ function About() {
           <Routes>
             <Route path="aboutce" element={<AboutCE />} />
             <Route path="developerguide" element={<DeveloperGuide />} />
-            {/* <Route path="aboutdeveloper" element={<AboutMe />} /> */}
+            <Route path="aboutdeveloper" element={<Contact />} />
           </Routes>
         </div>
       </div>
