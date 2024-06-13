@@ -11,18 +11,25 @@ import {
   faCode,
   faRepeat,
 } from "@fortawesome/free-solid-svg-icons";
+import { Navstate, Navbtnstate, UITheme } from "../Atoms/Atoms";
+import { useRecoilState } from "recoil";
 
 function Home() {
   const navigate = useNavigate();
   const [Logo, setLogo] = useState(require("../../Assets/CTlogoW.png"));
+  const [LogoDark, setLogoDark] = useState(require("../../Assets/CTlogoB.png"));
+
+  const [theme, setTheme] = useRecoilState(UITheme);
+
 
   return (
-    <div className="h-full w-full flex flex-col justify-center gap-2 bg-stone-900 rounded-md">
+    <div className={`h-full w-full flex flex-col justify-center gap-2 rounded-md ${theme==='light'? "bg-white text-black":"text-white bg-black"} `}>
       <div className="h-1/2 w-full flex flex-col justify-center items-center gap-1">
         <div className="h-1/3 w-full flex justify-center items-center">
-          <img src={Logo} className="h-full w-auto scale-150" alt="Logo" />
+          {theme==='dark' && <img src={Logo} className="h-full w-auto scale-150 select-none" alt="Logo" />}
+            {theme==='light' && <img src={LogoDark} className="h-full w-auto scale-150 select-none" alt="Logo" />}
         </div>
-        <div className="flex">
+        <div className="flex select-none">
           <h1 className="text-center xs:text-5xl lg:text-7xl   font-mateSc">C</h1>
           <h1 className="text-center xs:text-5xl lg:text-7xl   font-mateSc">O</h1>
           <h1 className="text-center xs:text-5xl lg:text-7xl   font-mateSc">D</h1>
@@ -70,7 +77,7 @@ function Home() {
         <div className="p-2">
           <button
             onClick={() => navigate("code_editor")}
-            className="p-3 font-mate text-xl bg-white rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform"
+            className={`p-3 font-mate text-xl  rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform ${theme==='light'? "bg-black text-white":"text-black bg-white"}`}
           >
             Visit Code Editor <FaComputer size={30} />
           </button>
@@ -79,19 +86,19 @@ function Home() {
       <div className="xs:h-[30vh] lg:h-[20vh] w-full flex flex-col items-center justify-center ">
         <div className="  gap-10 font-mono cursor-none mt-5 xs:grid xs:grid-cols-2 md:grid-cols-4 w-1/2">
           <div className="flex justify-center items-center flex-col hover:scale-150 transition-transform opacity-25 hover:opacity-100">
-            <FontAwesomeIcon icon={faUtensils} color="white" size="2xl" />
+            <FontAwesomeIcon icon={faUtensils} color={theme==='light'? "bg-white text-black":"text-white bg-black"} size="2xl" />
             <h1>eat();</h1>
           </div>
           <div className="flex justify-center items-center flex-col hover:scale-150 transition-transform opacity-25 hover:opacity-100">
-            <FontAwesomeIcon icon={faBed} color="white" size="2xl" />
+            <FontAwesomeIcon icon={faBed} color={theme==='light'? "bg-white text-black":"text-white bg-black"} size="2xl" />
             <h1>sleep();</h1>
           </div>
           <div className="flex justify-center items-center flex-col hover:scale-150 transition-transform opacity-25 hover:opacity-100">
-            <FontAwesomeIcon icon={faCode} color="white" size="2xl" />
+            <FontAwesomeIcon icon={faCode} color={theme==='light'? "bg-white text-black":"text-white bg-black"} size="2xl" />
             <h1>code();</h1>
           </div>
           <div className="flex justify-center items-center flex-col hover:scale-150 transition-transform opacity-25 hover:opacity-100">
-            <FontAwesomeIcon icon={faRepeat} color="white" size="2xl" />
+            <FontAwesomeIcon icon={faRepeat} color={theme==='light'? "bg-white text-black":"text-white bg-black"} size="2xl" />
             <h1>repeat();</h1>
           </div>
         </div>
