@@ -7,11 +7,11 @@ import About from "./Components/About/About";
 
 function App() {
   return (
-    <div className="h-screen w-screen bg-black">
+    <div className="h-screen w-screen ">
       <div className="h-[7vh] w-full sticky top-0 z-40">
         <NavBar />
       </div>
-      <div className="h-[93vh] w-full bg-black p-2 rounded-lg">
+      <div className="h-[93vh] w-full  p-2 rounded-lg">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="code_editor" element={<CodeEditor />} />

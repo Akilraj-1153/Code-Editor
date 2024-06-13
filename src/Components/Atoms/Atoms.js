@@ -40,3 +40,8 @@ export const InputToServer = atom({
   default: '',
 });
 
+export const UITheme = atom({
+  key: "UITheme",
+  default: 'light',
+});
+
