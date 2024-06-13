@@ -33,7 +33,7 @@ function About() {
                   About Developer
                 </button> */}
                 <a
-                  href="https://github.com/yourgithub"
+                  href="https://github.com/Akilraj-1153/Code-Editor"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-gray-400 py-1 flex h-full w-fit justify-center items-center"

@@ -30,12 +30,27 @@ function Home() {
           <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">O</h1>
           <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">R</h1>
         </div>
+        <div className="flex ">
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">W</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">I</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">T</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">H</h1>
+          <span className="p-3"></span>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">C</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">O</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">M</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">P</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">I</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">L</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">E</h1>
+          <h1 className="xs:text-4xl lg:text-7xl text-white font-mateSc">R</h1>
+        </div>
 
         <span className="px-2"></span>
         <div className="p-2">
           <button
             onClick={() => navigate("code_editor")}
-            className="p-3 bg-white rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform"
+            className="p-3 font-mate text-xl bg-white rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform"
           >
             Visit Code Editor <FaComputer size={30} />
           </button>
@@ -68,14 +83,14 @@ function Home() {
       </div>
       <div className="flex gap-20 p-4 mt-10">
         <a
-          href="https://github.com/yourgithub"
+          href="https://github.com/Akilraj-1153/Code-Editor"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-400"
         >
           <BsGithub size={30} />
         </a>
-        <a
+        {/* <a
           href="https://twitter.com/yourtwitter"
           target="_blank"
           rel="noopener noreferrer"
@@ -90,7 +105,7 @@ function Home() {
           className="text-white hover:text-pink-400"
         >
           <FaInstagram size={30} />
-        </a>
+        </a> */}
       </div>
     </div>
   );

@@ -20,8 +20,8 @@ function NavBar() {
             alt="eleven:eleven"
           />
         </div>
-        <div className="flex gap-2 justify-end h-full w-full items-center mr-10 font-mateSc text-xl select-none xs:hidden md:flex">
-          <div className="flex bg-white rounded-md justify-center items-center gap-2 p-1">
+        <div className="flex gap-2 justify-end h-[6vh] w-full items-center mr-10 font-mateSc text-xl select-none xs:hidden md:flex">
+          <div className="flex bg-white rounded-md justify-center items-center gap-5 p-1 px-3 transition-transform">
             <button
               onClick={() => {
                 navigate("/");
@@ -31,7 +31,7 @@ function NavBar() {
                 currentnavbtn === "Home"
                   ? "text-white bg-black p-1 rounded-md"
                   : "text-black"
-              } cursor-pointer`}
+              } cursor-pointer h-full transition-transform px-2`}
             >
               Home
             </button>
@@ -44,7 +44,7 @@ function NavBar() {
                 currentnavbtn === "Code Editor"
                   ? "text-white bg-black p-1 rounded-md"
                   : "text-black"
-              } cursor-pointer`}
+              } cursor-pointer h-full transition-transform px-2`}
             >
               Code Editor
             </button>
@@ -57,7 +57,7 @@ function NavBar() {
                 currentnavbtn === "About"
                   ? "text-white bg-black p-1 rounded-md"
                   : "text-black"
-              } cursor-pointer`}
+              } cursor-pointer h-full transition-transform px-2`}
             >
               About
             </button>
@@ -76,8 +76,8 @@ function NavBar() {
         </div>
       </div>
       {naviconactive && (
-        <div className="bg-stone-900 h-[20vh] w-full rounded-lg xs:flex md:hidden z-40">
-          <div className="flex gap-4 justify-center h-full w-full items-end p-2 font-mateSc text-xl select-none flex-col bg-white">
+        <div className="bg-stone-900 h-[20vh] w-full  xs:flex md:hidden z-40 shadow-xl p-1 rounded-md">
+          <div className="flex gap-4 justify-center h-full w-full items-end p-2 font-mateSc text-xl select-none flex-col bg-white rounded-lg">
             <button
               onClick={() => {
                 navigate("/");
@@ -88,7 +88,7 @@ function NavBar() {
                 currentnavbtn === "Home"
                   ? "text-white bg-black p-1 rounded-md"
                   : "text-black"
-              } cursor-pointer`}
+              } cursor-pointer h-full transition-transform px-2`}
             >
               Home
             </button>
@@ -102,7 +102,7 @@ function NavBar() {
                 currentnavbtn === "Code Editor"
                   ? "text-white bg-black p-1 rounded-md"
                   : "text-black"
-              } cursor-pointer`}
+              } cursor-pointer h-full transition-transform px-2`}
             >
               Code Editor
             </button>
@@ -116,7 +116,7 @@ function NavBar() {
                 currentnavbtn === "About"
                   ? "text-white bg-black p-1 rounded-md"
                   : "text-black"
-              } cursor-pointer`}
+              } cursor-pointer h-full transition-transform px-2`}
             >
               About
             </button>
