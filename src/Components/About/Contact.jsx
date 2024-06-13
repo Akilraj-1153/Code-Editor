@@ -20,29 +20,37 @@ function Contact() {
     const sendEmail = async (data) => {
       setIsSubmitting(true);
       try {
+          const emailData = {
+              from: data.user_email,
+              to: 'akillearn01@gmail.com',
+              subject: 'Hello World',
+              html: '<p>Hello World</p>' // Assuming the Resend API expects HTML content here
+          };
+          
+          console.log("Sending email with data:", emailData);
+  
           const response = await fetch('https://proxy-server-five-kappa.vercel.app/emails', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
               },
-              body: JSON.stringify({
-                  from: data.user_email,
-                  to: 'akillearn01@gmail.com',
-                  subject: 'Hello World',
-                  react: <Email url="https://google.com" />,
-              })
+              body: JSON.stringify(emailData)
           });
   
           if (response.ok) {
               toast.success("Email sent successfully!");
           } else {
-              toast.error("Failed to send email.");
+              const errorResponse = await response.json();
+              console.error("Failed to send email:", errorResponse);
+              toast.error(`Failed to send email: ${errorResponse.message || response.statusText}`);
           }
       } catch (error) {
+          console.error("Error sending email:", error);
           toast.error("Failed to send email.");
       }
       setIsSubmitting(false);
   };
+  
   
   
 

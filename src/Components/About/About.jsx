@@ -2,7 +2,6 @@ import React from "react";
 import AboutCE from "./AboutCE";
 import { BsGithub } from "react-icons/bs";
 import DeveloperGuide from "./DeveloperGuide";
-import AboutMe from "./AboutMe";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Contact from "./Contact";
 
@@ -29,7 +28,7 @@ function About() {
                 </button>
                 <button
                   className="h-full text-white bg-black px-4 lg:px-10 md:px-7 py-1 rounded-md font-mate whitespace-nowrap"
-                  onClick={() => navigate("aboutdeveloper")}
+                  onClick={() => navigate("contact")}
                 >
                   Contact
                 </button>
@@ -49,7 +48,7 @@ function About() {
           <Routes>
             <Route path="aboutce" element={<AboutCE />} />
             <Route path="developerguide" element={<DeveloperGuide />} />
-            <Route path="aboutdeveloper" element={<Contact />} />
+            <Route path="contact" element={<Contact />} />
           </Routes>
         </div>
       </div>
