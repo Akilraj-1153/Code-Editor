@@ -86,7 +86,7 @@ function LangThemeSelector() {
               ))}
             {themeOrLang === "Themes" &&
               Object.entries(themes).map(([key, theme], index) => (
-                <div className="flex lg:flex-col gap-1 p-1 xs:flex-row items-center" key={index}>
+                <div className="flex lg:flex-col gap-1  xs:flex-row items-center" key={index}>
                   <div
                     onClick={() => handleThemeChange(theme.themeValue)}
                     className={`p-2 rounded-md h-fit w-full cursor-pointer transition-transform whitespace-nowrap ${

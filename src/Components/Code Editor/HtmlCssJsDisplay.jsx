@@ -29,7 +29,7 @@ function HtmlCssJsDisplay() {
   
   return (
     <>
-      <div className="h-[6vh] w-full bg-white/30 rounded-md flex items-center p-2 gap-2">
+      <div className="h-[6vh] w-full bg-white/30 rounded-md flex items-center p-2 gap-2 font-mate">
       <div className="text-white flex justify-start items-center text-sm gap-3 bg-whit w-fit  rounded-md">
           <button className="text-white bg-black p-2 rounded-md" onClick={handleCodeRun}>
           Run

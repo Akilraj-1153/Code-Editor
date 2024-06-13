@@ -33,7 +33,7 @@ function Html_Css_Js() {
   return (
     <div className="flex gap-2 flex-col h-full">
       <div className="h-[6vh] w-full bg-white/30 rounded-md flex items-center gap-2">
-        <div className="h-full text-white flex justify-start items-center text-sm gap-3 bg-whit w-fit p-1 rounded-md">
+        <div className="h-full text-white flex justify-start items-center text-sm gap-3 bg-whit w-fit p-1 rounded-md font-mate">
           <button
             disabled={fileName === "index.html"}
             onClick={() => handleFileChange("index.html")}

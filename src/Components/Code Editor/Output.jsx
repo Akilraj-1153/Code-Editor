@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
+import { FaTerminal } from "react-icons/fa";
 import {
   InputToServer,
   codeToServer,
@@ -41,13 +42,14 @@ function Output() {
 
   return (
     <div className="flex flex-col gap-2 h-full overflow-scroll">
-      <div className="h-[6vh] w-full bg-white/30 rounded-md flex items-center p-1 gap-2">
+      <div className="h-[6vh] w-full bg-white rounded-md flex items-center p-1 gap-2">
           <div className="text-white flex justify-start items-center text-sm gap-3 bg-whit w-fit  rounded-md">
-          <button className="text-black bg-white p-2 rounded-md">
+          <button className="text-white bg-black  p-2 rounded-md">
           Output
           </button>
-          <button className="text-white bg-black p-2 rounded-md" onClick={handleServerCodeRun}>
-          Run
+          <button className="text-black  p-2 rounded-md border-2 border-gray hover:bg-black hover:text-white flex justify-center items-center gap-1" onClick={handleServerCodeRun}>
+          <h1>Run</h1>
+          <FaTerminal />
           </button>
           </div>
       </div>   
