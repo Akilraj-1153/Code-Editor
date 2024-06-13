@@ -20,18 +20,30 @@ function Contact() {
     const sendEmail = async (data) => {
       setIsSubmitting(true);
       try {
-        await resend.emails.send({
-          from: data.user_email,
-          to: 'akillearn01@gmail.com',
-          subject: 'Hello World',
-          react: <Email url="https://google.com" />,
-        });
-        toast.success("Email sent successfully!");
+          const response = await fetch('https://proxy-server-liq8sgnbr-akilraj-ns-projects.vercel.app/emails', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  from: data.user_email,
+                  to: 'akillearn01@gmail.com',
+                  subject: 'Hello World',
+                  react: <Email url="https://google.com" />,
+              })
+          });
+  
+          if (response.ok) {
+              toast.success("Email sent successfully!");
+          } else {
+              toast.error("Failed to send email.");
+          }
       } catch (error) {
-        toast.error("Failed to send email.");
+          toast.error("Failed to send email.");
       }
       setIsSubmitting(false);
-    };
+  };
+  
 
   return (
     <div className="xs:px-2 md:px-5 lg:px-10 font-mono h-full w-full">
