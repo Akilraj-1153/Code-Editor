@@ -5,6 +5,7 @@ import {
   activeTheme,
   languageToServer,
   versionToServer,
+  codeToServer
 } from "../Atoms/Atoms";
 import { languageOptions } from "../../Data/Data";
 import { themes } from "../../Data/Data";
@@ -15,6 +16,9 @@ function LangThemeSelector() {
   const [themeOrLang, setThemeOrLang] = useState("Languages");
   const [serverlang, setserverlang] = useRecoilState(languageToServer);
   const [serverversion, setserverversion] = useRecoilState(versionToServer);
+  const [servercode,setservercode]=useRecoilState(codeToServer)
+
+
 
   console.log(serverlang);
   console.log(serverversion);
@@ -23,10 +27,11 @@ function LangThemeSelector() {
     setCurrentTheme(theme);
   };
 
-  const handleLanguageChange = (language, version) => {
+  const handleLanguageChange = (language, version,code) => {
     setCurrentLanguage(language);
     setserverlang(language);
     setserverversion(version);
+    setservercode(code)
   };
 
   return (
@@ -70,7 +75,7 @@ function LangThemeSelector() {
                 <div className="flex lg:flex-col gap-1 xs:flex-row items-center  h-full w-full" key={index}>
                   <div
                     onClick={() =>
-                      handleLanguageChange(lang.language, lang.version)
+                      handleLanguageChange(lang.language, lang.version,lang.code)
                     }
                     className={`p-2  h-[5vh] w-full cursor-pointer transition-transform whitespace-nowrap xs:justify-center lg:justify-start items-center flex ${
                       currentLanguage === lang.language

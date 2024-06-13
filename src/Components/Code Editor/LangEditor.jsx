@@ -42,6 +42,7 @@ function LangEditor() {
           style={{ height: "100%", width: "100%",fontFamily:"monospace" }}
           editorProps={{ $blockScrolling: true }}
           fontSize={15}
+          value={servercode}
         />
         ,
       </div>
