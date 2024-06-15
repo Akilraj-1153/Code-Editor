@@ -6,6 +6,7 @@ import {
   codeToServer,
   languageToServer,
   versionToServer,
+  UITheme,
 } from "../Atoms/Atoms";
 import { executeCode } from "../API/api";
 
@@ -14,13 +15,19 @@ function Output() {
   const [serverlang] = useRecoilState(languageToServer);
   const [serverversion] = useRecoilState(versionToServer);
   const [output, setOutput] = useState(null);
-  const [serverInput,setserverInput]=useRecoilState(InputToServer)
+  const [serverInput, setserverInput] = useRecoilState(InputToServer);
+  const [theme, setTheme] = useRecoilState(UITheme);
 
   const iframeRef = useRef(null);
 
   const handleServerCodeRun = async () => {
     try {
-      const result = await executeCode(servercode, serverlang, serverversion, serverInput);
+      const result = await executeCode(
+        servercode,
+        serverlang,
+        serverversion,
+        serverInput
+      );
       setOutput(result.run.output);
       console.log(result);
     } catch (error) {
@@ -39,6 +46,7 @@ function Output() {
             font-size: 15px;
             margin: 0;
             padding: 0;
+            color: ${theme === 'light' ? 'black' : 'white'};
           }
           pre {
             font-size: 15px;
@@ -49,24 +57,36 @@ function Output() {
       `);
       document.close();
     }
-  }, [output]);
+  }, [output,theme]);
 
   return (
-    <div className="flex flex-col gap-2 h-full overflow-scroll">
-      <div className="h-[6vh] w-full bg-white rounded-md flex items-center p-1 gap-2">
-        <div className="text-white flex justify-start items-center text-sm gap-3 bg-whit w-fit rounded-md">
-          <button className="text-white bg-black p-2 rounded-md">
-            Output
-          </button>
-          <button className="text-black p-2 rounded-md border-2 border-gray hover:bg-black hover:text-white flex justify-center items-center gap-1" onClick={handleServerCodeRun}>
+    <div
+      className={`flex flex-col gap-2 h-full overflow-scroll rounded-md  ${
+         theme === "light" ? " bg-white" : "bg-black"
+      }`}
+    >
+      <div
+        className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black  ${
+          theme === "light" ? "text-white bg-black" : "text-black bg-white "
+        }`}
+      >
+        <div className=" flex justify-between items-center text-sm gap-3 bg-whit w-full rounded-md ">
+          <button className=" p-2 rounded-md">Output</button>
+          <button
+            className=" p-2 rounded-md  flex justify-center items-center gap-1"
+            onClick={handleServerCodeRun}
+          >
             <h1>Run</h1>
             <FaTerminal />
           </button>
         </div>
       </div>
+
       <iframe
         ref={iframeRef}
-        className="bg-white rounded-md flex flex-grow w-full h-full text-wrap"
+        className={` rounded-md flex flex-grow w-full h-full p-1 outline-none resize-none  ${
+          theme === "light" ? " bg-white" : " bg-black "
+        }`}
       ></iframe>
     </div>
   );

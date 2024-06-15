@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RiExpandLeftFill, RiExpandRightFill } from "react-icons/ri";
-import { Navstate, Navbtnstate, UITheme } from "../Atoms/Atoms";
+import { Navstate, Navbtnstate, UITheme,activeTheme } from "../Atoms/Atoms";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { BsFillMoonStarsFill } from "react-icons/bs";
@@ -17,8 +17,12 @@ function NavBar() {
   const [naviconactive, setNaveiconactive] = useRecoilState(Navstate);
   const [currentnavbtn, setCurrentNavBtn] = useRecoilState(Navbtnstate);
   const navigate = useNavigate();
-
   const [theme, setTheme] = useRecoilState(UITheme);
+  const [currentTheme, setCurrentTheme] = useRecoilState(activeTheme);
+ 
+
+
+
 
   return (
     <div className="h-fit w-full flex flex-col  sticky top-0 z-50">
@@ -141,11 +145,11 @@ function NavBar() {
         <div className="flex justify-end  xs:w-full md:w-fit">
         <div className="h-full w-fit justify-end flex items-center mr-2 xs:flex cursor-pointer  ">
           {theme === "light" ? (
-            <div onClick={() => setTheme("dark")}>
+            <div onClick={() => { setTheme("dark"); setCurrentTheme('tomorrow_night_bright') }}>
               <BsFillMoonStarsFill size={30} color="black" />
             </div>
           ) : (
-            <div onClick={() => setTheme("light")}>
+            <div onClick={() => {setTheme("light"); setCurrentTheme('chrome')}}>
               <PiSunDimFill size={30} color="white" />
             </div>
           )}

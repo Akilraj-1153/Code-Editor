@@ -1,11 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-
+import { UITheme } from "../Atoms/Atoms";
+import { useRecoilState } from "recoil";
 import { files } from "../../Data/Data";
-
+import { FaTerminal } from "react-icons/fa";
 
 function HtmlCssJsDisplay() {
-  
   const iframeRef = useRef(null);
+  const [theme, setTheme] = useRecoilState(UITheme);
 
   const handleCodeRun = () => {
     const iframe = iframeRef.current;
@@ -26,20 +27,27 @@ function HtmlCssJsDisplay() {
     document.close();
   };
 
-  
   return (
     <>
-      <div className="h-[6vh] w-full bg-white/30 rounded-md flex items-center p-2 gap-2 font-mate">
-      <div className="text-white flex justify-start items-center text-sm gap-3 bg-whit w-fit  rounded-md">
-          <button className="text-white bg-black p-2 rounded-md" onClick={handleCodeRun}>
-          Run
+      <div
+        className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black  ${
+          theme === "light" ? "text-white bg-black" : "text-black bg-white "
+        }`}
+      >
+        <div className=" flex justify-end items-center text-sm gap-3 bg-whit w-full rounded-md ">
+          <button
+            className=" p-2 rounded-md  flex justify-center items-center gap-1"
+            onClick={handleCodeRun}
+          >
+            <h1>Run</h1>
+            <FaTerminal />
           </button>
-          </div>
+        </div>
       </div>
       <iframe
         ref={iframeRef}
-        className="bg-white rounded-md"
-        style={{ width: "100%", height: "86vh", border: "1px solid #ccc" }}
+        className=" rounded-md"
+        style={{ width: "100%", height: "86vh" }}
       ></iframe>
     </>
   );
