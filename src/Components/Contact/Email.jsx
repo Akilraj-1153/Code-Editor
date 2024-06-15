@@ -1,12 +1,21 @@
 import * as React from 'react';
-import { Html, Button } from "@react-email/components";
+import { Html, Text, Img } from "@react-email/components";
 
 export function Email(props) {
-  const { url } = props;
+  const { senderName, senderEmail, message, image } = props;
 
   return (
     <Html lang="en">
-      <Button href={url}>Click me</Button>
+      <div>
+        <Text>Hello,</Text>
+        <Text>You have received a new message from:</Text>
+        <Text>Name: {senderName}</Text>
+        <Text>Email: {senderEmail}</Text>
+        <Text>Message: {message}</Text>
+        {image && (
+          <Img src={URL.createObjectURL(image)} alt="Attached Image" />
+        )}
+      </div>
     </Html>
   );
 }
