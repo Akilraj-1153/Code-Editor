@@ -18,16 +18,15 @@ function ContactPage() {
   
     const { register, handleSubmit, formState: { errors } } = useForm();
   
-    const resend = new Resend('re_SXoerXfK_7sMtCumDAzwL1TMj2HXKdVts');
   
     const sendEmail = async (data) => {
       setIsSubmitting(true);
-      const plunk = new Plunk(process.env.PLUNK_API_KEY);
+      const plunk = new Plunk("pk_390c5515bb641acfac4cb5158d4c1eb6f3106b85768d7b2a");
 
-const emailHtml = render(<Email url="https://example.com" />);
+const emailHtml = render(<Email url="https://google.com" />);
 
 plunk.emails.send({
-  to: "hello@useplunk.com",
+  to: "akillearn01@gmail.com",
   subject: "Hello world",
   body: emailHtml,
 });
