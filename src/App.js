@@ -6,7 +6,7 @@ import CodeEditor from "./Components/Code Editor/CodeEditor";
 import About from "./Components/About/About";
 import { UITheme,activeTheme } from "./Components/Atoms/Atoms";
 import { useRecoilState } from "recoil";
-
+import Contact from './Components/Contact/Contact'
 function App() {
   const [theme, setTheme] = useRecoilState(UITheme);
   
@@ -21,7 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="code_editor" element={<CodeEditor />} />
-          <Route path="about/*" element={<About />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
         </Routes>
       </div>
     </div>

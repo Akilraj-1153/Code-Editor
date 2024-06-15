@@ -9,7 +9,7 @@ import { RecoilRoot } from "recoil";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter  basename="/Code-Editor">
+    <BrowserRouter  basename="/Code_Turf-Code_Editor">
       <RecoilRoot>
         <App />
       </RecoilRoot>

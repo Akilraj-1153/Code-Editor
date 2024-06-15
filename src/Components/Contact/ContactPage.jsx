@@ -8,9 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { Resend } from 'resend';
-import Email from "./Email";
+import Plunk from '@plunk/node';
+import { render } from '@react-email/render';
+import Email from './Email'
 
-function Contact() {
+
+function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
   
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -19,35 +22,15 @@ function Contact() {
   
     const sendEmail = async (data) => {
       setIsSubmitting(true);
-      try {
-          const emailData = {
-              from: data.user_email,
-              to: 'akillearn01@gmail.com',
-              subject: 'Hello World',
-              html: '<p>Hello World</p>' // Assuming the Resend API expects HTML content here
-          };
-          
-          console.log("Sending email with data:", emailData);
-  
-          const response = await fetch('https://proxy-server-five-kappa.vercel.app/emails', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(emailData)
-          });
-  
-          if (response.ok) {
-              toast.success("Email sent successfully!");
-          } else {
-              const errorResponse = await response.json();
-              console.error("Failed to send email:", errorResponse);
-              toast.error(`Failed to send email: ${errorResponse.message || response.statusText}`);
-          }
-      } catch (error) {
-          console.error("Error sending email:", error);
-          toast.error("Failed to send email.");
-      }
+      const plunk = new Plunk(process.env.PLUNK_API_KEY);
+
+const emailHtml = render(<Email url="https://example.com" />);
+
+plunk.emails.send({
+  to: "hello@useplunk.com",
+  subject: "Hello world",
+  body: emailHtml,
+});
       setIsSubmitting(false);
   };
   
@@ -125,4 +108,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;

@@ -1,9 +1,9 @@
 import React from "react";
-import AboutCE from "./AboutCE";
 import { BsGithub } from "react-icons/bs";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ContactPage from "./ContactPage";
 
-function About() {
+function Contact() {
   const navigate = useNavigate();
   return (
     <div className="h-full w-full rounded-md flex justify-center">
@@ -12,31 +12,24 @@ function About() {
           <div className="h-full w-full rounded-md flex items-center gap-2 justify-between">
             <div className="font-mate h-full w-full text-white flex justify-around items-center text-sm gap-3 bg-black  rounded-md overflow-scroll">
               <div className="flex h-full gap-2 justify-around items-center w-full overflow-scroll">
-              <a
-                  href="https://github.com/Akilraj-1153/Code-Editor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-gray-400 p-1 flex h-full w-fit justify-center items-center"
-                >
                 <button
-                  className=" flex justify-center items-center gap-10 h-full w-full text-white bg-black px-4 lg:px-10 md:px-7  py-1 rounded-md font-mateSc whitespace-nowrap text-xl"
+                  className="h-full w-full text-white bg-black px-4 lg:px-10 md:px-7  py-1 rounded-md font-mateSc whitespace-nowrap text-xl"
+                  onClick={() => navigate("aboutce")}
                 >
-                  <p>About Code Editor</p>
-                 
-                  <BsGithub size={30} color="white" />
+                  Contact
+                  
                 </button>
-                </a>
                 
               </div>
             </div>
           </div>
         </div>
         <div className="w-full h-[90vh] bg-white overflow-scroll rounded-md">
-         <AboutCE></AboutCE>
+          <ContactPage></ContactPage>
         </div>
       </div>
     </div>
   );
 }
 
-export default About;
+export default Contact;

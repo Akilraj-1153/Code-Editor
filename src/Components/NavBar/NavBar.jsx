@@ -47,7 +47,7 @@ function NavBar() {
             </button>
             <button
               onClick={() => {
-                navigate("about/aboutce");
+                navigate("about");
                 setCurrentNavBtn("About");
               }}
               className={`
@@ -55,6 +55,17 @@ function NavBar() {
                 p-1`}
             >
               About
+            </button>
+            <button
+              onClick={() => {
+                navigate("contact");
+                setCurrentNavBtn("Contact");
+              }}
+              className={`
+                ${currentnavbtn === "Contact" ? "text-white border-b-4 border-white" : "text-white"}
+                p-1`}
+            >
+              Contact
             </button>
           </div>
         </div>
@@ -110,7 +121,7 @@ function NavBar() {
             </button>
             <button
               onClick={() => {
-                navigate("about/aboutce");
+                navigate("about");
                 setCurrentNavBtn("About");
                 setNaveiconactive(false);
               }}
@@ -119,6 +130,18 @@ function NavBar() {
                 px-2`}
             >
               About
+            </button>
+            <button
+              onClick={() => {
+                navigate("contact");
+                setCurrentNavBtn("Contact");
+                setNaveiconactive(false);
+              }}
+              className={`
+                ${currentnavbtn === "Contact" ? "text-white border-b-4 border-white" : "text-white"}
+                px-2`}
+            >
+              Contact
             </button>
           </div>
         </div>
