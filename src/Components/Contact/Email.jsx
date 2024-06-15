@@ -15,7 +15,6 @@ export function Email(props) {
         {image && (
           <Img src={image} alt="Attached Image" />
         )}
-        <Button href="https://google.com">Click me</Button>
       </div>
     </Html>
   );
