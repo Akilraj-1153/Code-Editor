@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/Code-Editor/static/css/main.ee829836.css",
-    "main.js": "/Code-Editor/static/js/main.91692bdb.js",
-    "static/js/453.5a613329.chunk.js": "/Code-Editor/static/js/453.5a613329.chunk.js",
-    "static/media/ss1.png": "/Code-Editor/static/media/ss1.c06e8d342863203de656.png",
-    "static/media/11 White.png": "/Code-Editor/static/media/11 White.c078802ff4918375459e.png",
-    "index.html": "/Code-Editor/index.html",
-    "main.ee829836.css.map": "/Code-Editor/static/css/main.ee829836.css.map",
-    "main.91692bdb.js.map": "/Code-Editor/static/js/main.91692bdb.js.map",
-    "453.5a613329.chunk.js.map": "/Code-Editor/static/js/453.5a613329.chunk.js.map"
+    "main.css": "/Code_Turf-Code_Editor/static/css/main.d14e2e8b.css",
+    "main.js": "/Code_Turf-Code_Editor/static/js/main.e8411167.js",
+    "static/js/453.5a613329.chunk.js": "/Code_Turf-Code_Editor/static/js/453.5a613329.chunk.js",
+    "static/media/ss1.png": "/Code_Turf-Code_Editor/static/media/ss1.c06e8d342863203de656.png",
+    "static/media/11 White.png": "/Code_Turf-Code_Editor/static/media/11 White.c078802ff4918375459e.png",
+    "static/media/CTlogoW.png": "/Code_Turf-Code_Editor/static/media/CTlogoW.7cc5a719ce65cc838483.png",
+    "index.html": "/Code_Turf-Code_Editor/index.html",
+    "main.d14e2e8b.css.map": "/Code_Turf-Code_Editor/static/css/main.d14e2e8b.css.map",
+    "main.e8411167.js.map": "/Code_Turf-Code_Editor/static/js/main.e8411167.js.map",
+    "453.5a613329.chunk.js.map": "/Code_Turf-Code_Editor/static/js/453.5a613329.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee829836.css",
-    "static/js/main.91692bdb.js"
+    "static/css/main.d14e2e8b.css",
+    "static/js/main.e8411167.js"
   ]
 }
