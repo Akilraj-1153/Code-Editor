@@ -13,7 +13,7 @@ export function Email(props) {
         <Text>Email: {senderEmail}</Text>
         <Text>Message: {message}</Text>
         {image && (
-          <Img src={URL.createObjectURL(image)} alt="Attached Image" />
+          <Img src={image} alt="Attached Image" />
         )}
       </div>
     </Html>
