@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Html, Text, Img } from "@react-email/components";
+import { Html, Button, Text, Img } from "@react-email/components";
 
 export function Email(props) {
   const { senderName, senderEmail, message, image } = props;
@@ -15,6 +15,7 @@ export function Email(props) {
         {image && (
           <Img src={image} alt="Attached Image" />
         )}
+        <Button href="https://google.com">Click me</Button>
       </div>
     </Html>
   );

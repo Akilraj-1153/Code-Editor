@@ -17,41 +17,61 @@ function ContactPage() {
     setIsSubmitting(true);
     const plunk = new Plunk("sk_1d1ceb4d3c639c25a50614bab15836d1d4285ff299e89e52");
 
-    const formData = new FormData();
-    formData.append("user_name", data.user_name);
-    formData.append("user_email", data.user_email);
-    formData.append("message", data.message);
+    let imageBase64 = null;
     if (data.image[0]) {
-      formData.append("image", data.image[0]);
-    }
+      const reader = new FileReader();
+      reader.readAsDataURL(data.image[0]);
+      reader.onloadend = () => {
+        imageBase64 = reader.result;
 
-    try {
-      const emailHtml = render(<Email senderName={data.user_name} senderEmail={data.user_email} message={data.message} image={data.image[0]} />);
-      
-      const emailData = {
-        to: "akillearn01@gmail.com",
-        subject: `Message from ${data.user_name}`,
-        body: emailHtml,
+        const emailHtml = render(
+          <Email 
+            senderName={data.user_name} 
+            senderEmail={data.user_email} 
+            message={data.message} 
+            image={imageBase64} 
+          />
+        );
+
+        try {
+          plunk.emails.send({
+            to: "akillearn01@gmail.com",
+            subject: `Message from ${data.user_name}`,
+            body: emailHtml,
+          });
+
+          toast.success("Email sent successfully!");
+        } catch (error) {
+          toast.error("Failed to send email.");
+          console.error("Email sending error: ", error);
+        } finally {
+          setIsSubmitting(false);
+        }
       };
+    } else {
+      const emailHtml = render(
+        <Email 
+          senderName={data.user_name} 
+          senderEmail={data.user_email} 
+          message={data.message} 
+          image={null} 
+        />
+      );
 
-      if (data.image[0]) {
-        emailData.attachments = [
-          {
-            filename: data.image[0].name,
-            content: await data.image[0].arrayBuffer(),
-            encoding: 'base64',
-          },
-        ];
+      try {
+        plunk.emails.send({
+          to: "akillearn01@gmail.com",
+          subject: `Message from ${data.user_name}`,
+          body: emailHtml,
+        });
+
+        toast.success("Email sent successfully!");
+      } catch (error) {
+        toast.error("Failed to send email.");
+        console.error("Email sending error: ", error);
+      } finally {
+        setIsSubmitting(false);
       }
-
-      await plunk.emails.send(emailData);
-
-      toast.success("Email sent successfully!");
-    } catch (error) {
-      toast.error("Failed to send email.");
-      console.error("Email sending error: ", error);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
