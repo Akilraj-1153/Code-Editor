@@ -12,9 +12,9 @@ function CodeEditor() {
 
 
   return (
-    <div className={`h-full w-full rounded-lg flex gap-2 xs:flex-col lg:flex-row  ${theme==='light'? "bg-white text-black":"text-white bg-black"}`}>
+    <div className={`h-full w-full rounded-lg flex gap-2 xs:flex-col lg:flex-row `}>
      
-      <div className={`xs:h-[15vh] w-full lg:w-1/6 lg:h-full  rounded-md `}>
+      <div className={`xs:h-[15vh] w-full lg:w-1/6 lg:h-full rounded-md `}>
         <LangThemeSelector></LangThemeSelector>
       </div>
 
