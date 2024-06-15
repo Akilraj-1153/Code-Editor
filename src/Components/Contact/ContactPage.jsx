@@ -21,7 +21,7 @@ function ContactPage() {
   
     const sendEmail = async (data) => {
       setIsSubmitting(true);
-      const plunk = new Plunk("pk_390c5515bb641acfac4cb5158d4c1eb6f3106b85768d7b2a");
+      const plunk = new Plunk("sk_1d1ceb4d3c639c25a50614bab15836d1d4285ff299e89e52");
 
 const emailHtml = render(<Email url="https://google.com" />);
 
