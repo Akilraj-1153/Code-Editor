@@ -30,13 +30,11 @@ function HtmlCssJsDisplay() {
   return (
     <>
       <div
-        className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black  ${
-          theme === "light" ? "text-white bg-black" : "text-black bg-white "
-        }`}
+        className="h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black  font-mate"
       >
-        <div className=" flex justify-end items-center text-sm gap-3 bg-whit w-full rounded-md ">
+        <div className=" flex justify-end items-center text-sm gap-3 w-full rounded-md ">
           <button
-            className=" p-2 rounded-md  flex justify-center items-center gap-1"
+            className=" p-2 rounded-md  flex justify-center items-center gap-1 bg-white"
             onClick={handleCodeRun}
           >
             <h1>Run</h1>
@@ -47,7 +45,7 @@ function HtmlCssJsDisplay() {
       <iframe
         ref={iframeRef}
         className=" rounded-md"
-        style={{ width: "100%", height: "86vh" }}
+        style={{ width: "100%", height: "86vh", backgroundColor:"white" }}
       ></iframe>
     </>
   );

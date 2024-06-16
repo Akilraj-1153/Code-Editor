@@ -6,7 +6,6 @@ import {
   codeToServer,
   languageToServer,
   versionToServer,
-  UITheme,
 } from "../Atoms/Atoms";
 import { executeCode } from "../../API/api";
 
@@ -16,7 +15,6 @@ function Output() {
   const [serverversion] = useRecoilState(versionToServer);
   const [output, setOutput] = useState(null);
   const [serverInput, setserverInput] = useRecoilState(InputToServer);
-  const [theme, setTheme] = useRecoilState(UITheme);
 
   const iframeRef = useRef(null);
 
@@ -46,7 +44,7 @@ function Output() {
             font-size: 15px;
             margin: 0;
             padding: 0;
-            color: ${theme === 'light' ? 'black' : 'white'};
+            
           }
           pre {
             font-size: 15px;
@@ -57,23 +55,15 @@ function Output() {
       `);
       document.close();
     }
-  }, [output,theme]);
+  }, [output]);
 
   return (
-    <div
-      className={`flex flex-col gap-2 h-full overflow-scroll rounded-md  ${
-         theme === "light" ? " bg-white" : "bg-black"
-      }`}
-    >
-      <div
-        className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black  ${
-          theme === "light" ? "text-white bg-black" : "text-black bg-white "
-        }`}
-      >
+    <div className="flex flex-col gap-2 h-full overflow-scroll rounded-md  ">
+      <div className="h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black text-white">
         <div className=" flex justify-between items-center text-sm gap-3 bg-whit w-full rounded-md ">
           <button className=" p-2 rounded-md">Output</button>
           <button
-            className=" p-2 rounded-md  flex justify-center items-center gap-1"
+            className=" p-2 rounded-md  flex justify-center items-center gap-1 bg-white text-black"
             onClick={handleServerCodeRun}
           >
             <h1>Run</h1>
@@ -84,9 +74,7 @@ function Output() {
 
       <iframe
         ref={iframeRef}
-        className={` rounded-md flex flex-grow w-full h-full p-1 outline-none resize-none  ${
-          theme === "light" ? " bg-white" : " bg-black "
-        }`}
+        className="rounded-md flex flex-grow w-full h-full p-1 outline-none resize-none bg-white text-black"
       ></iframe>
     </div>
   );

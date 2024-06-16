@@ -20,7 +20,7 @@ function CodeEditor() {
       <div className={`lg:h-full lg:w-3/6 flex gap-2 flex-col xs:w-full xs:h-[50vh] rounded-md `}>
         <MyEditor></MyEditor>
       </div>
-      <div className="lg:h-full lg:w-2/6 bg-blak flex gap-2 flex-col  rounded-md xs:w-full xs:h-[45vh] xs:pb-1 lg:pb-0 ">
+      <div className="lg:h-full lg:w-2/6  flex gap-2 flex-col  rounded-md xs:w-full xs:h-[45vh] xs:pb-1 lg:pb-0 ">
       {currentLanguage ==='HTML CSS JS' &&
        <HtmlCssJsDisplay></HtmlCssJsDisplay>
       }
