@@ -8,7 +8,7 @@ import {
   versionToServer,
   UITheme,
 } from "../Atoms/Atoms";
-import { executeCode } from "../API/api";
+import { executeCode } from "../../API/api";
 
 function Output() {
   const [servercode] = useRecoilState(codeToServer);

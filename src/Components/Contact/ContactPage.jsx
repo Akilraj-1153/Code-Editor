@@ -1,78 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { ExternalLink } from "react-external-link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
-import Plunk from '@plunk/node';
-import { render } from '@react-email/render';
-import Email from './Email';
+import emailjs from "@emailjs/browser";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { imagedb } from "../../API/firebaseAPI";
 
 function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const form = useRef();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-  const sendEmail = async (data) => {
+  const sendEmail = async (data, e) => {
     setIsSubmitting(true);
-    const plunk = new Plunk("sk_1d1ceb4d3c639c25a50614bab15836d1d4285ff299e89e52");
 
-    let imageBase64 = null;
-    if (data.image[0]) {
-      const reader = new FileReader();
-      reader.readAsDataURL(data.image[0]);
-      reader.onloadend = () => {
-        imageBase64 = reader.result;
+    let fileUrl = "";
 
-        const emailHtml = render(
-          <Email 
-            senderName={data.user_name} 
-            senderEmail={data.user_email} 
-            message={data.message} 
-            image={imageBase64} 
-          />
+    if (data.image && data.image[0]) {
+      const file = data.image[0];
+      const storageRef = ref(imagedb, `/images/${data.user_email}/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      fileUrl = await new Promise((resolve, reject) => {
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            // Progress monitoring
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(`Upload is ${progress}% done`);
+          },
+          (error) => {
+            console.error("Upload error:", error);
+            toast.error("Error uploading image.");
+            reject(error);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              resolve(downloadURL);
+            });
+          }
         );
-
-        try {
-          plunk.emails.send({
-            to: "akillearn01@gmail.com",
-            subject: `Message from ${data.user_name}`,
-            body: emailHtml,
-          });
-
-          toast.success("Email sent successfully!");
-        } catch (error) {
-          toast.error("Failed to send email.");
-          console.error("Email sending error: ", error);
-        } finally {
-          setIsSubmitting(false);
-        }
-      };
-    } else {
-      const emailHtml = render(
-        <Email 
-          senderName={data.user_name} 
-          senderEmail={data.user_email} 
-          message={data.message} 
-          image={null} 
-        />
-      );
-
-      try {
-        plunk.emails.send({
-          to: "akillearn01@gmail.com",
-          subject: `Message from ${data.user_name}`,
-          body: emailHtml,
-        });
-
-        toast.success("Email sent successfully!");
-      } catch (error) {
-        toast.error("Failed to send email.");
-        console.error("Email sending error: ", error);
-      } finally {
-        setIsSubmitting(false);
-      }
+      });
     }
+
+    try {
+      const result = await emailjs.send(
+        "service_xj8hxyc", // replace with your service ID
+        "template_j6xfe9f", // replace with your template ID
+        {
+          user_name: data.user_name,
+          user_email: data.user_email,
+          message: data.message,
+          file_url: fileUrl, // Send the file URL instead of the file itself
+        },
+        "9ZIOB5GrK4KOMXko2" // replace with your public key
+      );
+      toast.success("Message sent!");
+      console.log(result.text);
+    } catch (error) {
+      toast.error("Something went wrong, please try again later.");
+      console.error(error.text);
+    }
+
+    setIsSubmitting(false);
+    e.target.reset();
+    reset();
   };
 
   return (
@@ -89,23 +84,23 @@ function ContactPage() {
           </button>
           <button className="contacticon">
             <ExternalLink href="https://github.com/Akilraj-1153">
-              <FaGithub size={35} className="icon"></FaGithub>
+              <FaGithub size={35} className="icon" />
             </ExternalLink>
           </button>
           <button className="contacticon">
             <ExternalLink href="https://instagram.com/iam_akil_20?igshid=YTQwZjQ0NmI0OA==">
-              <RiInstagramFill size={35} className="icon"></RiInstagramFill>
+              <RiInstagramFill size={35} className="icon" />
             </ExternalLink>
           </button>
           <button className="contacticon">
             <ExternalLink href="https://x.com/Akilraj1153?t=nclAtn7CQGL7vEhqIDB3pA&s=08">
-              <FaTwitter size={35} className="icon"></FaTwitter>
+              <FaTwitter size={35} className="icon" />
             </ExternalLink>
           </button>
         </div>
 
-        <div className="form xs:w-[90%] md:w-[70%] lg:w-[50%] p-5 m-5 rounded-xl bg-black text-white">
-          <form onSubmit={handleSubmit(sendEmail)} className="flex flex-col gap-2">
+        <div className="form xs:w-[90%] md:w-[70%] lg:w-[70%] p-5 m-5 rounded-xl  bg-gradient-to-r from-slate-700 to-slate-900 text-white">
+          <form ref={form} onSubmit={handleSubmit(sendEmail)} className="flex flex-col gap-2">
             <label className="namelabel">Name</label>
             <input
               className="p-2 nameip rounded-lg h-10 text-black font-sans outline-none"
@@ -123,7 +118,7 @@ function ContactPage() {
 
             <label className="textlabel">Message</label>
             <textarea
-              className="p-2 textip rounded-lg font-sans h-20 text-black outline-none"
+              className="p-2 textip rounded-lg font-sans h-20 text-black outline-none resize-none"
               {...register("message", { required: true })}
             ></textarea>
             {errors.message && <span className="error">Message is required</span>}

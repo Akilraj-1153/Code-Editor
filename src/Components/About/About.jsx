@@ -16,7 +16,6 @@ function About() {
                   href="https://github.com/Akilraj-1153/Code-Editor"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-gray-400 p-1 flex h-full w-fit justify-center items-center"
                 >
                 <button
                   className=" flex justify-center items-center gap-10 h-full w-full text-white bg-black px-4 lg:px-10 md:px-7  py-1 rounded-md font-mateSc whitespace-nowrap text-xl"
