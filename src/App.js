@@ -8,7 +8,7 @@ import Contact from "./Components/Contact/Contact";
 function App() {
   return (
     <div
-      className={`h-screen w-screen bg-gradient-to-r from-slate-700 to-slate-900 `}
+      className={`h-screen w-screen `}
     >
       <div className="h-[7vh] w-full sticky top-0 z-40">
         <NavBar />
