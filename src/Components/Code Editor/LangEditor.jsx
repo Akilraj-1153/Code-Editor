@@ -25,8 +25,8 @@ function LangEditor() {
   };
 
   return (
-    <div className="flex  flex-col h-full font-mate">
-      <div className="h-[6vh] w-full  rounded-md flex items-center gap-2 p-1">
+    <div className="flex gap-2 flex-col h-full font-mate ">
+      <div className="h-[6vh] w-full  rounded-md flex items-center gap-2 ">
       <div  className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2  ${
           theme === "light" ? "text-white bg-black" : "text-black bg-white "
         }`}>
@@ -37,7 +37,8 @@ function LangEditor() {
           </div>
       </div>  
       </div>
-      <div className="h-[85vh] w-full rounded-md overflow-hidden p-1">
+
+      <div className="h-[85vh] w-full rounded-md overflow-hidden ">
         <div className=" h-full w-full rounded-md">
           
         <AceEditor

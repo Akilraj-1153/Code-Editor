@@ -13,9 +13,7 @@ function NavBar() {
 
   return (
     <div
-      className={`h-fit w-full flex flex-col sticky top-0 z-50 ${
-        naviconactive == true ? "backdrop-blur-xl" : ""
-      }`}
+      className={`h-fit w-full flex flex-col sticky top-0 z-50 backdrop-blur-3xl `}
     >
       <div className="h-[7vh] w-full rounded-b-lg flex items-center">
         <div className="h-full select-none">
@@ -89,8 +87,8 @@ function NavBar() {
             </button>
           </div>
         </div>
-        <div className="flex justify-end xs:w-full md:w-fit">
-          <div className="h-full w-fit justify-end flex items-center mr-2 xs:flex md:hidden">
+        <div className="flex justify-end h-full xs:w-full md:w-fit ">
+          <div className="h-full w-fit justify-end flex items-center mr-5 xs:flex md:hidden">
             {naviconactive ? (
               <div onClick={() => setNaveiconactive(false)}>
                 <FontAwesomeIcon
@@ -113,7 +111,7 @@ function NavBar() {
         </div>
       </div>
       {naviconactive && (
-        <div className="h-[20vh] w-full xs:flex md:hidden z-40 shadow-xl rounded-md">
+        <div className="h-[30vh] w-full xs:flex md:hidden z-40 shadow-xl rounded-md">
           <div className="flex gap-4 justify-center h-full w-full items-end p-2 font-mateSc text-xl select-none flex-col rounded-lg">
             <button
               onClick={() => {

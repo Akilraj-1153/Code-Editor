@@ -3,7 +3,7 @@ import ContactPage from "./ContactPage";
 
 function Contact() {
   return (
-    <div className="h-full w-full rounded-md flex justify-center">
+    <div className="h-full w-full rounded-md flex justify-center overflow-scroll">
       <div className=" h-full lg:w-[50%] rounded-md overflow-hidden flex flex-col gap-2 xs:w-[99%] md:w-[80%]">
         <div className="w-full h-[6vh] flex">
           <div className="h-full w-full rounded-md flex items-center gap-2 justify-between">
@@ -16,7 +16,7 @@ function Contact() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[90vh] bg-white overflow-scroll rounded-md">
+        <div className="w-full h-[90vh] bg-white overflow-scroll rounded-md ">
           <ContactPage></ContactPage>
         </div>
       </div>
