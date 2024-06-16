@@ -12,7 +12,11 @@ function NavBar() {
   const navigate = useNavigate();
 
   return (
-    <div className={`h-fit w-full flex flex-col sticky top-0 z-50 ${naviconactive == true ? "backdrop-blur-xl" : ""}`}>
+    <div
+      className={`h-fit w-full flex flex-col sticky top-0 z-50 ${
+        naviconactive == true ? "backdrop-blur-xl" : ""
+      }`}
+    >
       <div className="h-[7vh] w-full rounded-b-lg flex items-center">
         <div className="h-full select-none">
           <img
@@ -29,7 +33,11 @@ function NavBar() {
                 setCurrentNavBtn("Home");
               }}
               className={`
-                ${currentnavbtn === "Home" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "Home"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 p-1`}
             >
               Home
@@ -40,7 +48,11 @@ function NavBar() {
                 setCurrentNavBtn("Code Editor");
               }}
               className={`
-                ${currentnavbtn === "Code Editor" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "Code Editor"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 p-1`}
             >
               Code Editor
@@ -51,7 +63,11 @@ function NavBar() {
                 setCurrentNavBtn("About");
               }}
               className={`
-                ${currentnavbtn === "About" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "About"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 p-1`}
             >
               About
@@ -62,7 +78,11 @@ function NavBar() {
                 setCurrentNavBtn("Contact");
               }}
               className={`
-                ${currentnavbtn === "Contact" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "Contact"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 p-1`}
             >
               Contact
@@ -102,7 +122,11 @@ function NavBar() {
                 setNaveiconactive(false);
               }}
               className={`
-                ${currentnavbtn === "Home" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "Home"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 px-2`}
             >
               Home
@@ -114,7 +138,11 @@ function NavBar() {
                 setNaveiconactive(false);
               }}
               className={`
-                ${currentnavbtn === "Code Editor" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "Code Editor"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 px-2`}
             >
               Code Editor
@@ -126,7 +154,11 @@ function NavBar() {
                 setNaveiconactive(false);
               }}
               className={`
-                ${currentnavbtn === "About" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "About"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 px-2`}
             >
               About
@@ -138,7 +170,11 @@ function NavBar() {
                 setNaveiconactive(false);
               }}
               className={`
-                ${currentnavbtn === "Contact" ? "text-white border-b-4 border-white" : "text-white"}
+                ${
+                  currentnavbtn === "Contact"
+                    ? "text-white border-b-4 border-white"
+                    : "text-white"
+                }
                 px-2`}
             >
               Contact

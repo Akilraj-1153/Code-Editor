@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { FaComputer } from "react-icons/fa6";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { faUtensils, faBed, faCode, faRepeat } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUtensils,
+  faBed,
+  faCode,
+  faRepeat,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const navigate = useNavigate();
@@ -19,103 +24,43 @@ function Home() {
           />
         </div>
         <div className="flex select-none">
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            C
-          </h1>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            O
-          </h1>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            D
-          </h1>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            E
-          </h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">C</h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">O</h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">D</h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">E</h1>
           <span className="px-2"></span>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            T
-          </h1>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            U
-          </h1>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            R
-          </h1>
-          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">
-            F
-          </h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">T</h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">U</h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">R</h1>
+          <h1 className="text-center xs:text-5xl lg:text-7xl font-mateSc">F</h1>
         </div>
         <div className="h-1/2 w-full flex flex-col items-center justify-center">
           <div className="flex">
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              C
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              o
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              d
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              e
-            </h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">C</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">o</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">d</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">e</h1>
             <span className="px-1"></span>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              E
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              d
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              i
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              t
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              o
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              r
-            </h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">E</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">d</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">i</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">t</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">o</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">r</h1>
             <span className="px-1"></span>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              W
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              i
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              t
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              h
-            </h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">W</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">i</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">t</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">h</h1>
             <span className="px-1"></span>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              C
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              o
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              m
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              p
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              i
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              l
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              e
-            </h1>
-            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">
-              r
-            </h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">C</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">o</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">m</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">p</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">i</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">l</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">e</h1>
+            <h1 className="text-center xs:text-2xl lg:text-3xl font-mate">r</h1>
           </div>
         </div>
         <div>

@@ -3,12 +3,11 @@ import MyEditor from "./MyEditor";
 import LangThemeSelector from "./LangThemeSelector";
 import InOpDisplay from "./InOpDisplay";
 import { useRecoilState } from "recoil";
-import { activeLanguage,UITheme } from "../Atoms/Atoms";
+import { activeLanguage } from "../Atoms/Atoms";
 import HtmlCssJsDisplay from "./HtmlCssJsDisplay";
 
 function CodeEditor() {
   const [currentLanguage] = useRecoilState(activeLanguage);
-  const [theme, setTheme] = useRecoilState(UITheme);
 
 
   return (

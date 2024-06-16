@@ -6,8 +6,6 @@
 ::-webkit-scrollbar {
   height: 0px;
   width: 0px;
-  
-
 }
 /* ::-webkit-scrollbar {
   height: 7px;
@@ -36,7 +34,6 @@
   background-color: transparent;
 } */
 
-
-html{
-    background-color: white;
+html {
+  background-color: white;
 }

@@ -7,7 +7,7 @@ export const Navstate = atom({
 
 export const Navbtnstate = atom({
   key: "Navbtnstate",
-  default: 'Home',
+  default: "Home",
 });
 
 export const activeLanguage = atom({
@@ -37,11 +37,10 @@ export const languageToServer = atom({
 
 export const InputToServer = atom({
   key: "InputToServer",
-  default: '',
+  default: "",
 });
 
 export const UITheme = atom({
   key: "UITheme",
-  default: 'light',
+  default: "light",
 });
-

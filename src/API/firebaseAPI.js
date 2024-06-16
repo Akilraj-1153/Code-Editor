@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "code-turf-94bae.appspot.com",
   messagingSenderId: "1053940324182",
   appId: "1:1053940324182:web:fc02df7b1f053f0035e8f7",
-  measurementId: "G-HLY8V3YNS3"
+  measurementId: "G-HLY8V3YNS3",
 };
 
 // Initialize Firebase
@@ -22,7 +22,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 // Initialize Storage
 const imagedb = getStorage(app);
-const db = getFirestore(app)
+const db = getFirestore(app);
 
-
-export {  app, analytics,imagedb,db };
+export { app, analytics, imagedb, db };

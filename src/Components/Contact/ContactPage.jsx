@@ -12,7 +12,12 @@ import { imagedb } from "../../API/firebaseAPI";
 function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useRef();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const sendEmail = async (data, e) => {
     setIsSubmitting(true);
@@ -21,7 +26,10 @@ function ContactPage() {
 
     if (data.image && data.image[0]) {
       const file = data.image[0];
-      const storageRef = ref(imagedb, `/images/${data.user_email}/${file.name}`);
+      const storageRef = ref(
+        imagedb,
+        `/images/${data.user_email}/${file.name}`
+      );
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       fileUrl = await new Promise((resolve, reject) => {
@@ -29,7 +37,8 @@ function ContactPage() {
           "state_changed",
           (snapshot) => {
             // Progress monitoring
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log(`Upload is ${progress}% done`);
           },
           (error) => {
@@ -100,7 +109,11 @@ function ContactPage() {
         </div>
 
         <div className="form xs:w-[90%] md:w-[70%] lg:w-[70%] p-5 m-5 rounded-xl  bg-gradient-to-r from-slate-700 to-slate-900 text-white">
-          <form ref={form} onSubmit={handleSubmit(sendEmail)} className="flex flex-col gap-2">
+          <form
+            ref={form}
+            onSubmit={handleSubmit(sendEmail)}
+            className="flex flex-col gap-2"
+          >
             <label className="namelabel">Name</label>
             <input
               className="p-2 nameip rounded-lg h-10 text-black font-sans outline-none"
@@ -114,14 +127,18 @@ function ContactPage() {
               type="email"
               {...register("user_email", { required: true })}
             />
-            {errors.user_email && <span className="error">Email is required</span>}
+            {errors.user_email && (
+              <span className="error">Email is required</span>
+            )}
 
             <label className="textlabel">Message</label>
             <textarea
               className="p-2 textip rounded-lg font-sans h-20 text-black outline-none resize-none"
               {...register("message", { required: true })}
             ></textarea>
-            {errors.message && <span className="error">Message is required</span>}
+            {errors.message && (
+              <span className="error">Message is required</span>
+            )}
 
             <label className="filelabel">Attach an Image</label>
             <input type="file" {...register("image")} />
