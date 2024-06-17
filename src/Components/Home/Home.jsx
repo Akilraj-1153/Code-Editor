@@ -8,10 +8,20 @@ import {
   faCode,
   faRepeat,
 } from "@fortawesome/free-solid-svg-icons";
+import { useRecoilState } from "recoil";
+import { useEffect } from "react";
+import { Navbtnstate } from "../Atoms/Atoms";
 
 function Home() {
   const navigate = useNavigate();
   const [Logo] = useState(require("../../Assets/CTlogoW.png"));
+  const [currentnavbtn, setCurrentNavBtn] = useRecoilState(Navbtnstate);
+
+ 
+  const handleNavButtonClick = (btn, path) => {
+    setCurrentNavBtn(btn);
+    navigate(path);
+  };
 
   return (
     <div className="h-full w-full flex flex-col justify-center gap-2 text-white">
@@ -69,12 +79,18 @@ function Home() {
             Languages.
           </h1>
         </div>
-        <div className="p-2">
+        <div className="p-2 flex ">
           <button
-            onClick={() => navigate("code_editor")}
+            onClick={() => handleNavButtonClick("Code Editor", "code_editor")}
             className="p-3 font-mate text-xl rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform text-black bg-white"
           >
             Visit Code Editor <FaComputer size={30} />
+          </button>
+          <button
+             onClick={() => handleNavButtonClick("User Guide", "userguide")}
+            className="p-3 font-mate text-xl rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform text-black bg-white"
+          >
+           Check User Guide 
           </button>
         </div>
       </div>

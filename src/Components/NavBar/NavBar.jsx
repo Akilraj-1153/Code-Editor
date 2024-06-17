@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navstate, Navbtnstate } from "../Atoms/Atoms";
 import { useRecoilState } from "recoil";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,25 +10,34 @@ function NavBar() {
   const [naviconactive, setNaveiconactive] = useRecoilState(Navstate);
   const [currentnavbtn, setCurrentNavBtn] = useRecoilState(Navbtnstate);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Function to save the current nav button to local storage
-  const saveCurrentNavBtn = (btn) => {
-    localStorage.setItem("currentNavBtn", btn);
-  };
-
-  // Function to load the current nav button from local storage
-  const loadCurrentNavBtn = () => {
-    return localStorage.getItem("currentNavBtn") || "Home";
-  };
-
+  // Sync currentnavbtn state with current location on mount and location change
   useEffect(() => {
-    // Set the initial state from local storage
-    setCurrentNavBtn(loadCurrentNavBtn());
-  }, [setCurrentNavBtn]);
+    const path = location.pathname;
+    switch (path) {
+      case "/":
+        setCurrentNavBtn("Home");
+        break;
+      case "/code_editor":
+        setCurrentNavBtn("Code Editor");
+        break;
+      case "/userguide":
+        setCurrentNavBtn("User Guide");
+        break;
+      case "/about":
+        setCurrentNavBtn("About");
+        break;
+      case "/contact":
+        setCurrentNavBtn("Contact");
+        break;
+      default:
+        setCurrentNavBtn("");
+    }
+  }, [location.pathname, setCurrentNavBtn]);
 
   const handleNavButtonClick = (btn, path) => {
     setCurrentNavBtn(btn);
-    saveCurrentNavBtn(btn);
     navigate(path);
   };
 
@@ -49,7 +58,7 @@ function NavBar() {
               Home
             </button>
             <button
-              onClick={() => handleNavButtonClick("Code Editor", "code_editor")}
+              onClick={() => handleNavButtonClick("Code Editor", "/code_editor")}
               className={`${
                 currentnavbtn === "Code Editor" ? "text-white border-b-4 border-white" : "text-white"
               } p-1`}
@@ -57,7 +66,7 @@ function NavBar() {
               Code Editor
             </button>
             <button
-              onClick={() => handleNavButtonClick("User Guide", "userguide")}
+              onClick={() => handleNavButtonClick("User Guide", "/userguide")}
               className={`${
                 currentnavbtn === "User Guide" ? "text-white border-b-4 border-white" : "text-white"
               } p-1`}
@@ -65,7 +74,7 @@ function NavBar() {
               User Guide
             </button>
             <button
-              onClick={() => handleNavButtonClick("About", "about")}
+              onClick={() => handleNavButtonClick("About", "/about")}
               className={`${
                 currentnavbtn === "About" ? "text-white border-b-4 border-white" : "text-white"
               } p-1`}
@@ -73,7 +82,7 @@ function NavBar() {
               About
             </button>
             <button
-              onClick={() => handleNavButtonClick("Contact", "contact")}
+              onClick={() => handleNavButtonClick("Contact", "/contact")}
               className={`${
                 currentnavbtn === "Contact" ? "text-white border-b-4 border-white" : "text-white"
               } p-1`}
@@ -117,7 +126,7 @@ function NavBar() {
               Home
             </button>
             <button
-              onClick={() => handleNavButtonClick("Code Editor", "code_editor")}
+              onClick={() => handleNavButtonClick("Code Editor", "/code_editor")}
               className={`${
                 currentnavbtn === "Code Editor" ? "text-white border-b-4 border-white" : "text-white"
               } px-2`}
@@ -125,7 +134,7 @@ function NavBar() {
               Code Editor
             </button>
             <button
-              onClick={() => handleNavButtonClick("User Guide", "userguide")}
+              onClick={() => handleNavButtonClick("User Guide", "/userguide")}
               className={`${
                 currentnavbtn === "User Guide" ? "text-white border-b-4 border-white" : "text-white"
               } px-2`}
@@ -133,7 +142,7 @@ function NavBar() {
               User Guide
             </button>
             <button
-              onClick={() => handleNavButtonClick("About", "about")}
+              onClick={() => handleNavButtonClick("About", "/about")}
               className={`${
                 currentnavbtn === "About" ? "text-white border-b-4 border-white" : "text-white"
               } px-2`}
@@ -141,7 +150,7 @@ function NavBar() {
               About
             </button>
             <button
-              onClick={() => handleNavButtonClick("Contact", "contact")}
+              onClick={() => handleNavButtonClick("Contact", "/contact")}
               className={`${
                 currentnavbtn === "Contact" ? "text-white border-b-4 border-white" : "text-white"
               } px-2`}

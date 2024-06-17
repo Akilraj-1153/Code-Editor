@@ -1,12 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
-import { UITheme } from "../Atoms/Atoms";
-import { useRecoilState } from "recoil";
+
 import { files } from "../../Data/Data";
 import { FaTerminal } from "react-icons/fa";
 
 function HtmlCssJsDisplay() {
   const iframeRef = useRef(null);
-  const [theme, setTheme] = useRecoilState(UITheme);
 
   const handleCodeRun = () => {
     const iframe = iframeRef.current;

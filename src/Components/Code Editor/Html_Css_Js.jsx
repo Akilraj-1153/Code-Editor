@@ -14,6 +14,10 @@ function Html_Css_Js() {
   const [fileName, setFileName] = useState("index.html");
   const [code, setCode] = useState(files[fileName].value);
   const [currentTheme] = useRecoilState(activeTheme);
+  const [htmlimg,setHtmlimg]=useState(require('../../Assets/LOGO/html.png'))
+  const [cssimg,setCssimg]=useState(require('../../Assets/LOGO/css.png'))
+  const [jsimg,setjsimg]=useState(require('../../Assets/LOGO/js.png'))
+
 
   useEffect(() => {
     setCode(files[fileName].value);
@@ -37,13 +41,14 @@ function Html_Css_Js() {
           <button
             disabled={fileName === "index.html"}
             onClick={() => handleFileChange("index.html")}
-            className={`h-full  px-2 rounded-md ${
+            className={`h-full  px-2 rounded-md flex justify-center items-center ${
               fileName === "index.html" 
                 ? "text-black bg-white"
                 : ""
             }
             `}
           >
+            <img className="h-full w-fit" src={htmlimg}></img>
             index.html
           </button>
           <hr
@@ -52,13 +57,15 @@ function Html_Css_Js() {
           <button
             disabled={fileName === "style.css"}
             onClick={() => handleFileChange("style.css")}
-            className={`h-full px-2  rounded-md ${
+            className={`h-full px-2  rounded-md flex justify-center items-center  ${
               fileName === "style.css" 
                 ? "text-black bg-white"
                 : ""
             }
             `}
           >
+            <img className="h-full w-fit" src={cssimg}></img>
+
             style.css
           </button>
           <hr
@@ -68,13 +75,14 @@ function Html_Css_Js() {
           <button
             disabled={fileName === "script.js"}
             onClick={() => handleFileChange("script.js")}
-            className={`h-full px-2  rounded-md ${
+            className={`h-full px-2  rounded-md flex justify-center items-center  ${
               fileName === "script.js"
                 ? "text-black bg-white"
                 : ""
             }
             `}
           >
+            <img className="h-full w-fit" src={jsimg}></img>
             script.js
           </button>
         </div>

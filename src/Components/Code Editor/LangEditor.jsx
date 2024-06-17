@@ -3,7 +3,7 @@ import { files } from "../../Data/Data";
 import { activeTheme } from "../Atoms/Atoms";
 import { useRecoilState } from "recoil";
 import { useState } from "react";
-import { activeLanguage,codeToServer ,UITheme} from "../Atoms/Atoms";
+import { activeLanguage,codeToServer,langicon } from "../Atoms/Atoms";
 
 import AceEditor from "react-ace";
 import 'ace-builds/src-noconflict/mode-javascript';
@@ -16,7 +16,8 @@ function LangEditor() {
   const [code, setCode] = useState(files[fileName].value);
   const [currentTheme] = useRecoilState(activeTheme);
   const [servercode,setservercode]=useRecoilState(codeToServer)
-  const [theme, setTheme] = useRecoilState(UITheme);
+  const [currenticon,setcurrecticon]=useRecoilState(langicon)
+
 
   console.log(servercode)
 
@@ -27,11 +28,10 @@ function LangEditor() {
   return (
     <div className="flex gap-2 flex-col h-full font-mate ">
       <div className="h-[6vh] w-full  rounded-md flex items-center gap-2 ">
-      <div  className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2  ${
-          theme === "light" ? "text-white bg-black" : "text-black bg-white "
-        }`}>
+      <div  className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black text-white`}>
           <div className="flex justify-start items-center text-sm gap-3 bg-whit w-fit  rounded-md">
-          <button className=" p-2 rounded-md font-mate" >
+          <button className=" p-2 rounded-md font-mate flex items-center" >
+            <img className="h-full w-fit scale-75" src={currenticon}></img>
           {currentLanguage}
           </button>
           </div>

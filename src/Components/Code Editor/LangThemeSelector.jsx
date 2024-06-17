@@ -6,6 +6,7 @@ import {
   languageToServer,
   versionToServer,
   codeToServer,
+  langicon,
 } from "../Atoms/Atoms";
 import { languageOptions } from "../../Data/Data";
 import { themes } from "../../Data/Data";
@@ -17,6 +18,7 @@ function LangThemeSelector() {
   const [serverlang, setserverlang] = useRecoilState(languageToServer);
   const [serverversion, setserverversion] = useRecoilState(versionToServer);
   const [servercode, setservercode] = useRecoilState(codeToServer);
+  const [currenticon,setcurrecticon]=useRecoilState(langicon)
 
   console.log(serverlang);
   console.log(serverversion);
@@ -25,11 +27,12 @@ function LangThemeSelector() {
     setCurrentTheme(theme);
   };
 
-  const handleLanguageChange = (language, version, code) => {
+  const handleLanguageChange = (language, version, code,img) => {
     setCurrentLanguage(language);
     setserverlang(language);
     setserverversion(version);
     setservercode(code);
+    setcurrecticon(img)
   };
 
   return (
@@ -71,15 +74,18 @@ function LangThemeSelector() {
                       handleLanguageChange(
                         lang.language,
                         lang.version,
-                        lang.code
+                        lang.code,
+                        lang.img
                       )
                     }
-                    className={`p-2 rounded-md   h-fit w-full cursor-pointer transition-transform whitespace-nowrap xs:justify-center lg:justify-start items-center flex ${
+                    className={`p-2 rounded-md   h-[6vh] w-full cursor-pointer transition-transform whitespace-nowrap xs:justify-center lg:justify-start items-center flex ${
                       currentLanguage === lang.language
                         ? "text-black bg-white"
                         : "text-white"
                     } `}
                   >
+                    <img className="h-full w-fit" src={lang.img}></img>
+                    <span className="px-1"></span>
                     {lang.language}
                     {lang.version !== null && <span className="px-1"></span>}
                     {lang.version}
