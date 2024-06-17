@@ -18,7 +18,7 @@ function LangThemeSelector() {
   const [serverlang, setserverlang] = useRecoilState(languageToServer);
   const [serverversion, setserverversion] = useRecoilState(versionToServer);
   const [servercode, setservercode] = useRecoilState(codeToServer);
-  const [currenticon,setcurrecticon]=useRecoilState(langicon)
+  const [currenticon, setcurrecticon] = useRecoilState(langicon);
 
   console.log(serverlang);
   console.log(serverversion);
@@ -27,12 +27,12 @@ function LangThemeSelector() {
     setCurrentTheme(theme);
   };
 
-  const handleLanguageChange = (language, version, code,img) => {
+  const handleLanguageChange = (language, version, code, img) => {
     setCurrentLanguage(language);
     setserverlang(language);
     setserverversion(version);
     setservercode(code);
-    setcurrecticon(img)
+    setcurrecticon(img);
   };
 
   return (
@@ -66,7 +66,7 @@ function LangThemeSelector() {
             {themeOrLang === "Languages" &&
               languageOptions.map((lang, index) => (
                 <div
-                  className="flex lg:flex-col gap-1 xs:flex-row items-center  h-full w-full"
+                  className="flex lg:flex-col gap-1 xs:flex-row items-center  h-full w-full "
                   key={index}
                 >
                   <div
@@ -78,7 +78,7 @@ function LangThemeSelector() {
                         lang.img
                       )
                     }
-                    className={`p-2 rounded-md   h-[6vh] w-full cursor-pointer transition-transform whitespace-nowrap xs:justify-center lg:justify-start items-center flex ${
+                    className={`p-2  rounded-md  h-[6vh] xs:w-[23vh] lg:w-full max-w-full cursor-pointer whitespace-nowrap xs:justify-center lg:justify-start items-center flex ${
                       currentLanguage === lang.language
                         ? "text-black bg-white"
                         : "text-white"
@@ -92,15 +92,16 @@ function LangThemeSelector() {
                   </div>
                 </div>
               ))}
+
             {themeOrLang === "Themes" &&
               Object.entries(themes).map(([key, selectedtheme], index) => (
                 <div
-                  className="flex lg:flex-col gap-1 xs:flex-row items-center  h-full w-full"
+                  className="flex lg:flex-col gap-1 xs:flex-row items-center  h-full w-full "
                   key={index}
                 >
                   <div
                     onClick={() => handleThemeChange(selectedtheme.themeValue)}
-                    className={`p-2 rounded-md h-fit w-full cursor-pointer transition-transform whitespace-nowrap ${
+                    className={`p-2 rounded-md h-[6vh]  w-full cursor-pointer transition-transform whitespace-nowrap flex items-center ${
                       currentTheme === selectedtheme.themeValue
                         ? "text-black bg-white"
                         : "text-white"

@@ -79,7 +79,7 @@ function Home() {
             Languages.
           </h1>
         </div>
-        <div className="p-2 flex ">
+        <div className="p-2 flex xs:flex-col justify-center items-center lg:flex-row">
           <button
             onClick={() => handleNavButtonClick("Code Editor", "code_editor")}
             className="p-3 font-mate text-xl rounded-lg h-fit w-fit font-bold flex justify-center items-center gap-2 scale-75 hover:scale-100 transition-transform text-black bg-white"

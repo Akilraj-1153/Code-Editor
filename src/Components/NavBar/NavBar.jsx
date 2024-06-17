@@ -38,6 +38,7 @@ function NavBar() {
 
   const handleNavButtonClick = (btn, path) => {
     setCurrentNavBtn(btn);
+    setNaveiconactive(false)
     navigate(path);
   };
 
