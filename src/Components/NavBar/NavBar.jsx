@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
-  const [EELogoLight] = useState(require("../../Assets/11 White.png"));
+  const [Logo] = useState(require("../../Assets/CTlogoW.png"));
+
   const [naviconactive, setNaveiconactive] = useRecoilState(Navstate);
   const [currentnavbtn, setCurrentNavBtn] = useRecoilState(Navbtnstate);
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -46,7 +48,7 @@ function NavBar() {
     <div className="h-fit w-full flex flex-col sticky top-0 z-50 backdrop-blur-3xl">
       <div className="h-[7vh] w-full rounded-b-lg flex items-center">
         <div className="h-full select-none">
-          <img className="h-full w-auto scale-125 ml-2" src={EELogoLight} alt="eleven:eleven" />
+          <img className="h-full w-auto scale-125 ml-4" src={Logo} alt="eleven:eleven" />
         </div>
         <div className="flex gap-2 justify-end h-[6vh] w-full items-center mr-10 font-mateSc text-xl select-none xs:hidden md:flex">
           <div className="flex rounded-md justify-center items-center gap-5 p-1 px-3 transition-transform">
