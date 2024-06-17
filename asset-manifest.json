@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/Code_Turf-Code_Editor/static/css/main.b57b27f8.css",
-    "main.js": "/Code_Turf-Code_Editor/static/js/main.cb3f3cb8.js",
+    "main.css": "/Code_Turf-Code_Editor/static/css/main.2ad41e9f.css",
+    "main.js": "/Code_Turf-Code_Editor/static/js/main.2dd2054d.js",
     "static/js/453.8166b778.chunk.js": "/Code_Turf-Code_Editor/static/js/453.8166b778.chunk.js",
-    "static/media/ss1.png": "/Code_Turf-Code_Editor/static/media/ss1.c06e8d342863203de656.png",
+    "static/media/img5.png": "/Code_Turf-Code_Editor/static/media/img5.151a9dc07e5bc261e0fa.png",
+    "static/media/img4.png": "/Code_Turf-Code_Editor/static/media/img4.92f6f06b2f517a7e76d7.png",
+    "static/media/img2.png": "/Code_Turf-Code_Editor/static/media/img2.ed197af70d348d970934.png",
+    "static/media/img1.png": "/Code_Turf-Code_Editor/static/media/img1.b7526e219aeee6021b91.png",
+    "static/media/img3.png": "/Code_Turf-Code_Editor/static/media/img3.05b6941487950cdbfb61.png",
     "static/media/11 White.png": "/Code_Turf-Code_Editor/static/media/11 White.c078802ff4918375459e.png",
     "static/media/CTlogoW.png": "/Code_Turf-Code_Editor/static/media/CTlogoW.7cc5a719ce65cc838483.png",
     "index.html": "/Code_Turf-Code_Editor/index.html",
-    "main.b57b27f8.css.map": "/Code_Turf-Code_Editor/static/css/main.b57b27f8.css.map",
-    "main.cb3f3cb8.js.map": "/Code_Turf-Code_Editor/static/js/main.cb3f3cb8.js.map",
+    "main.2ad41e9f.css.map": "/Code_Turf-Code_Editor/static/css/main.2ad41e9f.css.map",
+    "main.2dd2054d.js.map": "/Code_Turf-Code_Editor/static/js/main.2dd2054d.js.map",
     "453.8166b778.chunk.js.map": "/Code_Turf-Code_Editor/static/js/453.8166b778.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b57b27f8.css",
-    "static/js/main.cb3f3cb8.js"
+    "static/css/main.2ad41e9f.css",
+    "static/js/main.2dd2054d.js"
   ]
 }
