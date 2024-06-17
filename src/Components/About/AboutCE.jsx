@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { IoIosWarning } from "react-icons/io";
 
 const AboutCE = () => {
-    const [img1]=useState(require("../../Assets/Screenshots/ss1.png"))
   const techStack = [
     {
       category: "Frontend",
@@ -63,22 +62,7 @@ const AboutCE = () => {
 
         <hr className="h-1 bg-black border-none"></hr>
         <span className="py-2"></span>
-      <div className="gap-2 flex flex-col">
-      <h1 className="text-2xl font-bold font-mate mb-2">Guide For User:</h1>
-      <h1>1).Select the Language</h1>
-      <img src={img1}></img>
-      <h1>2).Change the Theme (optional)</h1>
-      <img src={img1}></img>
-
-      <h1>3).Edit the code</h1>
-      <img src={img1}></img>
-
-      <h1>4).Run the code</h1>
-      <img src={img1}></img>
-
-      <h1>5).Output</h1>
-      <img src={img1}></img>
-      </div>
+     
 
     </div>
   );

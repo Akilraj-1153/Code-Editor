@@ -26,44 +26,50 @@ function Output() {
         serverversion,
         serverInput
       );
-      setOutput(result.run.output);
+      const { output, stderr } = result.run;
+      setOutput(stderr ? `Error: ${stderr}` : output);
       console.log(result);
     } catch (error) {
       console.error("Error executing code:", error);
+      setOutput(`Error: ${error.message}`);
     }
   };
 
   useEffect(() => {
     if (output !== null) {
       const iframe = iframeRef.current;
-      const document = iframe.contentDocument;
-      document.open();
-      document.write(`
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      const isError = output.toLowerCase().startsWith("error");
+
+      iframeDoc.open();
+      iframeDoc.write(`
         <style>
           body {
             font-size: 15px;
             margin: 0;
             padding: 0;
-            
           }
           pre {
             font-size: 15px;
-            padding:5px
+            padding: 5px;
+            color: ${isError ? 'red' : 'black'};
+            white-space: pre-wrap;
+            word-wrap: break-word;
           }
         </style>
         <pre>${output}</pre>
       `);
-      document.close();
+      iframeDoc.close();
     }
   }, [output]);
 
   return (
-    <div className="flex flex-col gap-2 h-full overflow-scroll rounded-md  ">
-      <div className="h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black text-white">
-        <div className=" flex justify-between items-center text-sm gap-3 bg-whit w-full rounded-md ">
-          <button className=" p-2 rounded-md">Output</button>
+    <div className="flex flex-col gap-2 h-full overflow-scroll rounded-md">
+      <div className="h-[6vh] w-full rounded-md flex items-center p-1 gap-2 bg-black text-white">
+        <div className="flex justify-between items-center text-sm gap-3 w-full rounded-md">
+          <button className="p-2 rounded-md">Output</button>
           <button
-            className=" p-2 rounded-md  flex justify-center items-center gap-1 bg-white text-black"
+            className="p-2 rounded-md flex justify-center items-center gap-1 bg-white text-black"
             onClick={handleServerCodeRun}
           >
             <h1>Run</h1>
@@ -75,6 +81,7 @@ function Output() {
       <iframe
         ref={iframeRef}
         className="rounded-md flex flex-grow w-full h-full p-1 outline-none resize-none bg-white text-black"
+        title="output-iframe"
       ></iframe>
     </div>
   );

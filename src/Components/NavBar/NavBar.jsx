@@ -57,6 +57,14 @@ function NavBar() {
               Code Editor
             </button>
             <button
+              onClick={() => handleNavButtonClick("User Guide", "userguide")}
+              className={`${
+                currentnavbtn === "User Guide" ? "text-white border-b-4 border-white" : "text-white"
+              } p-1`}
+            >
+              User Guide
+            </button>
+            <button
               onClick={() => handleNavButtonClick("About", "about")}
               className={`${
                 currentnavbtn === "About" ? "text-white border-b-4 border-white" : "text-white"
@@ -115,6 +123,14 @@ function NavBar() {
               } px-2`}
             >
               Code Editor
+            </button>
+            <button
+              onClick={() => handleNavButtonClick("User Guide", "userguide")}
+              className={`${
+                currentnavbtn === "User Guide" ? "text-white border-b-4 border-white" : "text-white"
+              } px-2`}
+            >
+              User Guide
             </button>
             <button
               onClick={() => handleNavButtonClick("About", "about")}

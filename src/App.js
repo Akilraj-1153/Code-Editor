@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import CodeEditor from "./Components/Code Editor/CodeEditor";
 import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
+import UserGuide from "./Components/Guide/UserGuide";
 function App() {
   return (
     <div
@@ -17,8 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="code_editor" element={<CodeEditor />} />
-          <Route path="about" element={<About />} />
+          <Route path="about/*" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="userguide" element={<UserGuide />} />
+
         </Routes>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import { InputToServer } from "../Atoms/Atoms";
+import { IoIosWarning } from "react-icons/io";
+
 
 function Input() {
   const [serverInput, setserverInput] = useRecoilState(InputToServer);
@@ -17,7 +19,7 @@ function Input() {
         className={`h-[6vh] w-full  rounded-md flex items-center p-1 gap-2 bg-black text-white`}
       >
         <div className="flex justify-between items-center text-sm gap-3 bg-whit w-full  rounded-md">
-          <button className=" p-2 rounded-md font-mate">Input</button>
+          <button className=" p-2 rounded-md font-mate">Input</button> 
         </div>
       </div>
       <textarea
