@@ -1,12 +1,5 @@
-import React from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaYoutube } from "react-icons/fa";
 
-import { faLocationArrow, faYoutube } from "@fortawesome/free-solid-svg-icons";
 
-function DeveloperGuide() {
   const langcode = `
 const axios = require('axios'); // legacy way
 

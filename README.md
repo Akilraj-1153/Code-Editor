@@ -1,71 +1,133 @@
 # Code Turf
 
-Welcome to Code Turf, your ultimate code editor web application!
+Welcome to **Code Turf** – a simple yet efficient code editor that supports multiple programming languages, powered by the Piston API.
 
-## Getting Started
+## Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Supported Languages and Versions](#supported-languages-and-versions)
+- [Themes](#themes)
+- [Executing Code](#executing-code)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Available Scripts
+## Introduction
 
-In the project directory, you can run:
+**Code Turf** is a web-based code editor designed to provide a seamless coding experience with support for multiple programming languages. It leverages the Piston API to run and execute code, making it an excellent tool for developers, students, and educators.
 
-#### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Multi-language Support:** Write and execute code in various programming languages.
+- **Syntax Highlighting:** Enhanced readability with language-specific syntax highlighting.
+- **Customizable Themes:** Choose from a variety of themes to personalize your coding environment.
+- **Real-time Code Execution:** Instant feedback with real-time code execution using the Piston API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-#### `npm test`
+To get started with **Code Turf**, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/code-turf.git
+   cd code-turf
+   ```
 
-#### `npm run build`
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open your browser and navigate to `http://localhost:3000` to start using **Code Turf**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-#### `npm run eject`
+### Fetch Supported Languages and Versions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Use the following code to fetch the list of supported languages and versions:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+const axios = require('axios'); // legacy way
 
-### Learn More
+// Create an Axios instance with the base URL
+const API = axios.create({
+    baseURL: "https://emkc.org/api/v2/piston"
+});
 
-You can learn more about Create React App in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// Function to get runtimes
+const getRuntimes = async () => {
+    try {
+        const response = await API.get('/runtimes');
+        console.log(response.data);
+    } catch (error) {
+        console.error('Error fetching runtimes:', error);
+    }
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+getRuntimes();
+```
 
-### Code Splitting
+### Fetch Supported Themes
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/code-splitting).
+To get the list of supported themes, visit the following webpage:
+[Supported Themes](https://gist.github.com/RyanNutt/cb8d60997d97905f0b2aea6c3b5c8ee0)
 
-### Analyzing the Bundle Size
+Alternatively, you can get it from this GitHub repository:
+[Supported Themes GitHub Repo](https://github.com/Akilraj-1153/Code-Editor/blob/main/src/Data/Data.js)
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size).
+### Executing Code
 
-### Making a Progressive Web App
+Use the following code to execute code using the Piston API:
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app).
+```javascript
+import axios from "axios";
 
-### Advanced Configuration
+// Create an Axios instance with the base URL
+const API = axios.create({
+  baseURL: "https://emkc.org/api/v2/piston",
+});
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/advanced-configuration).
+export const executeCode = async (servercode, serverlang, serverversion) => {
+  try {
+    const response = await API.post("/execute", {
+      language: serverlang,
+      version: serverversion,
+      files: [
+        {
+          content: servercode,
+        },
+      ],
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error executing code:", error);
+    throw error;
+  }
+};
+```
 
-### Deployment
+## Contributing
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/deployment).
+Contributions are welcome! Please follow these steps to contribute:
 
-### Troubleshooting
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Commit your changes.
+5. Push to your branch.
+6. Create a pull request.
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify).
+## License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using **Code Turf**! We hope you enjoy coding with our editor. If you have any questions or feedback, please feel free to open an issue or contact us directly.
